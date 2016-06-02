@@ -1,0 +1,77 @@
+/* Clearing floats */
+.clear:after,
+.wrapper:after,
+.format-status .entry-header:after {
+	clear: both;
+}
+.clear:before,
+.clear:after,
+.wrapper:before,
+.wrapper:after,
+.format-status .entry-header:before,
+.format-status .entry-header:after {
+	display: table;
+	content: "";
+}
+
+/* Misc */
+.updated table {
+    width: 100%;
+}
+.social-media-sharing-utility ul {
+    width: 60%;
+}
+.social-media-sharing-utility ul li {
+    display: inline;
+    padding: 0 5px;
+    position: relative;
+}
+.social-media-sharing-utility ul li .fb-share-button {
+    position: absolute;
+}
+.updated table .button-secondary, .social-media-sharing-utility .button-secondary {
+    float: right;
+}
+.social-media-sharing-utility .button-secondary {
+    margin: 13px 0 0 0;
+}
+
+/* Admin menu */
+#wp-admin-bar-tutopti-parent > a {
+	display: block;
+	height: 28px;
+	background-image: url(../images/logo.png) !important;
+	background-position: 10px center !important;
+	background-repeat: no-repeat !important;
+	padding-left: 30px !important;
+}
+#wp-admin-bar-tutopti-parent > a:hover {
+	background-image: url(../images/logo.png) !important;
+	background-position: 10px center !important;
+	background-repeat: no-repeat !important;
+	padding-left: 30px !important;
+}
+#wp-admin-bar-tutopti-parent > a.running {
+	display: block;
+	height: 28px;
+	background-image: url(../images/logo_active.png) !important;
+	background-position: 10px center !important;
+	background-repeat: no-repeat !important;
+	padding-left: 30px !important;
+}
+#wp-admin-bar-tutopti-parent > a.running:hover {
+	background-image: url(../images/logo_active.png) !important;
+	background-position: 10px center !important;
+	background-repeat: no-repeat !important;
+	padding-left: 30px !important;
+}
+
+/* Contextual Help */
+#tab-panel-tutopti-help-tab .tutopti-start-tour,
+#tab-panel-tutopti-help-tab .tutopti-restart-tour {
+	height: 30px;
+	line-height: 28px;
+	margin: 15px 0;
+	padding-left: 28px;
+	padding-right: 28px;
+}
