@@ -13,13 +13,13 @@
     position: relative;
     margin: -1px -1px 5px;
     padding: 15px 18px 14px 60px;
-    border: 1px solid #ce3f44;
+    border: 1px solid #008bad;
     border-bottom: none;
     line-height: 1.4em;
     font-size: 14px;
     /* background-image: url(../images/logo.png); */
     color: #fff;
-    background: url(../images/fondo.png)#d23e44;
+    background: url(../images/fondo.png)#008bad;
     background-repeat: no-repeat;
 }
 
@@ -33,16 +33,17 @@
     color: #fff;
 }
 .wp-core-ui .button-primary {
-    background: #c72228;
-    border-color: #c72228 #c72228 #c72228;
-    -webkit-box-shadow: 0 1px 0 #c72228;
-    box-shadow: 0 1px 0 #c72228;
+    background: #008bad;
+    border-color: #008bad #008bad #008bad;
+    -webkit-box-shadow: none;
+    box-shadow: none;
     color: #fff;
     text-decoration: none;
-    text-shadow: 0 -1px 1px #c72228,1px 0 1px #c72228,0 1px 1px #c72228,-1px 0 1px #c72228;
+    text-shadow: none;
 }
 
-.wp-pointer-top .wp-pointer-arrow-inner {    border-bottom-color: #d23e44;top:0px;}
+
+.wp-pointer-top .wp-pointer-arrow-inner {    border-bottom-color: #008bad;top:0px;}
 
 .wp-pointer-buttons a.close:before {
     background: 0 0;

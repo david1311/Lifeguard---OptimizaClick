@@ -69,9 +69,9 @@
 			var that = $(this),
                 data = that.serialize();
 
-            $('.tutopti-overlay-form .footer .button-primary').before('<div class="tutopti-loading">Saving...</div>');
+            $('.tutopti-overlay-form .footer .button-primary').before('<div class="tutopti-loading">Guardando...</div>');
             $('.tutopti-overlay-form .footer .button-primary').addClass( 'tutopti-doing-ajax' );
-            $('.tutopti-overlay-form .footer .button-primary').val('Saving...');
+            $('.tutopti-overlay-form .footer .button-primary').val('Guardando...');
             $.post(tutopti_Vars.ajaxurl, data, function(res) {
             	res = $.parseJSON(res);
 
@@ -86,7 +86,7 @@
 					});
 
 					$('.tutopti-overlay .button-primary').remove();
-					$('.tutopti-overlay .footer').html('<input type="button" class="button-primary" value="Okay" />');
+					$('.tutopti-overlay .footer').html('<input type="button" class="button-primary" value="Listo" />');
 					$('.tutopti-overlay .button-primary').on('click', function(){
 						tutopti_Create_Manual.close();
 					});

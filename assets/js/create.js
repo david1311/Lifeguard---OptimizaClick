@@ -4,7 +4,7 @@
 	tutopti_Vars.ovarlayManual = '',
 	tutopti_Vars.elName = '',
 	tutopti_Vars.allowClose = true,
-	tutopti_Vars.actionDone = 'created',
+	tutopti_Vars.actionDone = 'creado',
 	tutopti_Vars.statusOverlayClass = 'tutopti-status-overlay',
 	tutopti_Vars.statusOverlayDataAttr = 'idclass',
 	tutopti_Vars.newCollection = {};
@@ -152,7 +152,7 @@
                     };
 
             $( '.tutopti-cancel-add-collection' ).hide();
-            $( '.tutopti-new-collection' ).after( '<div class="tutopti-loading adding-collection">Saving...</div>' );
+            $( '.tutopti-new-collection' ).after( '<div class="tutopti-loading adding-collection">Guardando...</div>' );
 
             $.post( tutopti_Vars.ajaxurl, data, function(res) {
                 res = $.parseJSON(res);

@@ -1,4 +1,414 @@
-/* Clearing floats */
+
+
+
+.tutopti_help {
+    float: right;
+    font-size: 20px;
+    font-weight: 900;
+    padding: 12px;
+    color: #9a9a9a;
+}
+
+.acc-content.activa{    height: 120px;}
+.acc-content.unactive{    height: 0px;}
+.acc-content.open.unactive {
+    height: 120px;
+}
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; 
+    width: 0; 
+    position: fixed; 
+        z-index: 99999999; 
+    top: 0;
+    left: 0;
+       background-color: #f9f9f9;
+    overflow-x: hidden; 
+
+    transition: 0.5s; 
+}
+
+em {        background: #0184a1;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;}
+#searchButton em {
+  text-decoration: underline;
+  background-color: yellow;
+}
+li {margin-bottom: 0px;}
+
+/* The navigation menu links */
+.sidenav a {
+
+    text-decoration: none;
+    font-size: 25px;
+    z-index: 99;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #2980b9;
+}
+
+
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px !important;
+    margin-left: 50px;
+}
+
+
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+.hamburger {
+display: inline-block;
+    bottom: 0px;
+    position: relative;
+    margin-bottom: 10px;
+    float:right;
+}
+.hamburger > div {
+    margin-top: 0.4vh;
+    background: #0184A1;
+    height: 1.0vh;
+    width: 5vh;
+    border-radius: 2.5vh;
+    position: relative;
+}
+.hamburger > div:nth-child(2)::after {
+    border: 1.0vh solid #0184A1;
+    border-color: #0184A1 transparent transparent transparent;
+    position: absolute;
+    content: "";
+    bottom: -1.5vh;
+    right: 1vh;
+    transition: .3s all ease-in-out;
+}
+.hamburger > div:first-child {
+  over-flow: hidden;
+  transition: .3s all ease-in-out;
+  position: relative;
+  top: 0;
+}
+.hamburger:hover, .hamburger:active, .hamburger.expanded {
+  cursor: pointer;
+}
+.hamburger:hover div:nth-child(2)::after, .hamburger:active div:nth-child(2)::after, .hamburger.expanded div:nth-child(2)::after {
+  bottom: -1.5vh;
+}
+.hamburger:hover div:first-child, .hamburger:active div:first-child, .hamburger.expanded div:first-child {
+  height: 2vh;
+ top: -1vh;
+  margin-bottom: -1vh;
+  border-radius: 20vh 20vh 2.5vh 2.5vh; 
+}
+
+.welcome-panel {padding: 23px 10px 23px; }
+
+
+/* MENU OPTIMIZA */
+
+#adminmenu div.wp-menu-name {
+    padding: 8px 0;
+    width: 100%;
+}
+
+.onoffswitch {
+    position: relative; width: 90px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 20px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "ON";
+    padding-left: 10px;
+    background-color: #34A7C1; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "OFF";
+    padding-right: 10px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block;
+    width: 18px;
+    height: 27px;
+    margin: 6px;
+    background: #FFFFFF;
+    position: absolute;
+    top: 14px;
+    bottom: 0;
+    right: 56px;
+    border: 2px solid #999999;
+    border-radius: 20px;
+    transition: all 0.3s ease-in 0s;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
+.wp-core-ui .button.button-primary.button-hero {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+ #adminmenu .update-plugins {    background-color: #004f63;
+    color: #ffffff;}
+#collapse-menu {
+    background: #0184A1;
+    color: #ffffff;}
+#adminmenu li a.wp-has-current-submenu .update-plugins {background:black;}
+#wpadminbar:not(.mobile) .ab-top-menu>li:hover>.ab-item {background-color: #0184A1;color:white;}
+#adminmenu li a:focus div.wp-menu-image:before, #adminmenu li.opensub div.wp-menu-image:before, #adminmenu li:hover div.wp-menu-image:before {color:white;}
+.auto-fold #adminmenu li>a.menu-top:focus {background-color: #0184A1;color:white;}
+#adminmenu li.opensub>a.menu-top {background-color: #0184A1;color:white}
+#wpadminbar {    background: #0184A1;}
+#adminmenu li.menu-top:hover {    background-color: #0184A1;
+    color: #ffffff;}
+#adminmenu .wp-submenu a:hover, #adminmenu a:hover {color:white;}
+#adminmenuwrap {    background-color: #0ab0d8;}
+#adminmenu div.wp-menu-image:before {color:white;}
+#adminmenu {    background-color: #0ab0d8;}
+#wpadminbar .quicklinks .ab-sub-wrapper .menupop.hover>a, #wpadminbar .quicklinks .menupop ul li a:focus, #wpadminbar .quicklinks .menupop ul li a:focus strong, #wpadminbar .quicklinks .menupop ul li a:hover, #wpadminbar .quicklinks .menupop ul li a:hover strong, #wpadminbar .quicklinks .menupop.hover ul li a:focus, #wpadminbar .quicklinks .menupop.hover ul li a:hover, #wpadminbar li #adminbarsearch.adminbar-focused:before, #wpadminbar li .ab-item:focus:before, #wpadminbar li a:focus .ab-icon:before, #wpadminbar li.hover .ab-icon:before, #wpadminbar li.hover .ab-item:before, #wpadminbar li:hover #adminbarsearch:before, #wpadminbar li:hover .ab-icon:before, #wpadminbar li:hover .ab-item:before, #wpadminbar.nojs .quicklinks .menupop:hover ul li a:focus, #wpadminbar.nojs .quicklinks .menupop:hover ul li a:hover {
+    color:white;
+}
+ #wpadminbar:not(.mobile)>#wp-toolbar li:hover span.ab-label, #wpadminbar>#wp-toolbar li.hover span.ab-label {color:white;}
+#adminmenu li.wp-has-current-submenu a.wp-has-current-submenu {background-color: #0ab0d8;}
+#adminmenu .wp-has-current-submenu .wp-submenu {    background-color: #0184A1;}
+#adminmenu li.current a.menu-top {background:#1f1f1f;}
+#adminmenuback {background-color:#0ab0d8;}
+/* POPUPS HELP */
+.modal {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: left;
+  background: rgba(0,0,0, .9);
+  transition: opacity .25s ease;
+}
+
+.modal__bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.modal-state {
+  display: none;
+}
+
+.modal-state:checked + .modal {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-state:checked + .modal .modal__inner {
+  top: 0;
+}
+
+
+.modal__inner p {
+    padding: 10px;
+}
+
+.modal__inner p:nth-child(2n+1) {
+
+    padding: 10px;
+}
+.modal__inner {
+     transition: top .25s ease;
+    position: absolute;
+    top: 5% !important;
+    right: 0;
+    left: 12% !important;
+    bottom: 0;
+    left: 0;
+    width: 83%;
+    margin: auto;
+    overflow: auto;
+    background: #fff;
+    padding: 1em 2em;
+    height: 90%;
+}
+
+.modal__close {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  width: 1.1em;
+  height: 1.1em;
+  cursor: pointer;
+}
+
+.modal__close:after,
+.modal__close:before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 1.5em;
+  background: #ccc;
+  display: block;
+  transform: rotate(45deg);
+  left: 50%;
+  margin: -3px 0 0 -1px;
+  top: 0;
+}
+
+.modal__close:hover:after,
+.modal__close:hover:before {
+  background: #aaa;
+}
+
+.modal__close:before {
+  transform: rotate(-45deg);
+}
+
+@media screen and (max-width: 768px) {
+	
+  .modal__inner {
+    width: 90%;
+    height: 90%;
+    box-sizing: border-box;
+  }
+}
+
+
+/* PESTAÑAS DE AYUDA */
+.wp-pointer-content p {
+    font-size: 1.1em;
+}
+
+.btn {
+  cursor: pointer;
+  background: #c61d23;
+  display: inline-block;
+  padding: .5em 1em;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.btn:hover,
+.btn:focus {
+  background: #af151b;
+}
+
+.btn:active {
+  background: #27ae60;
+  box-shadow: 0 1px 2px rgba(0,0,0, .2) inset;
+}
+
+.btn--blue {
+  background: #2980b9;
+}
+input#modal-1 {
+    display: none;
+}
+
+input#modal-2 {
+    display: none;
+}
+.btn--blue:hover,
+.btn--blue:focus {
+  background: #3498db;
+}
+
+.btn--blue:active {
+  background: #2980b9;
+}
+
+p img {
+  max-width: 200px;
+  height: auto;
+  float: left;
+  margin: 0 1em 1em 0;
+}
+.acc-container {
+  width:100%;
+         margin: 20px 0px 20px 0px;
+  -webkit-border-radius:8px;
+  -moz-border-radius:8px;
+  -o-border-radius:8px;
+  border-radius:8px;
+  overflow:hidden;
+}
+
+.acc-btn { 
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px 15px;
+    cursor: pointer;
+    background: rgb(247, 247, 247);
+}
+
+.acc-content {
+  height:0px;
+  width:100%;
+  margin:0 auto;
+  overflow:hidden;
+     background: #ffffff;
+}
+.acc-container h1 {    font-size: 1.4em;text-transform: uppercase;}
+.acc-content-inner {
+  padding:30px;
+}
+
+.open {
+  height: auto;
+}
+
+
+
+p { 
+  font:400 16px/24px 'Lato', sans-serif;
+  color:#798795;
+}
+
+.selected {
+  color:#0184A1;
+      font-weight: 900;
+        font-size: 1.4em !important;
+}
+
+
+/* ICONOS Y DEMAS DE FLOTANTES */
 .clear:after,
 .wrapper:after,
 .format-status .entry-header:after {
@@ -13,10 +423,28 @@
 	display: table;
 	content: "";
 }
-
+.tuto_content {padding-top: 20px;
+    padding-right: 40px;padding-left: 20px;}
 /* Misc */
 .updated table {
     width: 100%;
+}
+
+.ayuda i{    float: right;
+    margin: 10px;
+    padding: 15px;
+       background: #0ab0d8;
+           border-radius: 100px;
+    color: white;
+          -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+    font-size: 30px;}
+    
+
+.ayuda i:hover {
+    background: #de767c;
 }
 .social-media-sharing-utility ul {
     width: 60%;
@@ -35,38 +463,20 @@
 .social-media-sharing-utility .button-secondary {
     margin: 13px 0 0 0;
 }
-
-/* Admin menu */
-#wp-admin-bar-tutopti-parent > a {
-	display: block;
-	height: 28px;
-	background-image: url(../images/logo.png) !important;
-	background-position: 10px center !important;
-	background-repeat: no-repeat !important;
-	padding-left: 30px !important;
-}
-#wp-admin-bar-tutopti-parent > a:hover {
-	background-image: url(../images/logo.png) !important;
-	background-position: 10px center !important;
-	background-repeat: no-repeat !important;
-	padding-left: 30px !important;
-}
-#wp-admin-bar-tutopti-parent > a.running {
-	display: block;
-	height: 28px;
-	background-image: url(../images/logo_active.png) !important;
-	background-position: 10px center !important;
-	background-repeat: no-repeat !important;
-	padding-left: 30px !important;
-}
-#wp-admin-bar-tutopti-parent > a.running:hover {
-	background-image: url(../images/logo_active.png) !important;
-	background-position: 10px center !important;
-	background-repeat: no-repeat !important;
-	padding-left: 30px !important;
+#footer-thankyou {
+    display: none;
 }
 
-/* Contextual Help */
+/* MENU DE ADMIN - LOGO */
+#wp-admin-bar-tutopti-parent > a:before {
+	display: block;
+font-size:10px;
+margin-top:2px;
+	content: "\f466";
+}
+
+
+/* AYUDA */
 #tab-panel-tutopti-help-tab .tutopti-start-tour,
 #tab-panel-tutopti-help-tab .tutopti-restart-tour {
 	height: 30px;
@@ -74,4 +484,11 @@
 	margin: 15px 0;
 	padding-left: 28px;
 	padding-right: 28px;
+}
+
+.tutopti-overlay h3 {    background: #0184A1 !important;}
+
+.tutopti-overlay h3 span::after {
+   display: none !important;
+
 }

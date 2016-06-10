@@ -43,8 +43,8 @@
                     $( '.wp-pointer .back' ).on( 'click', tutopti_Pointer.back ); // Trigger back when back button is clicked
 
                 // If there are pointers displayed, change button text to 'Restart'
-                if ( $( '.wp-pointer' ).length )
-                    $( '.tutopti-restart-collection' ).val( 'Restart Tour!' );
+                if ( $( '.wp-pointer' ).length > 1)
+                    $( '.tutopti-restart-collection' ).val( 'Reiniciar' );
 
                 // Position pointer
                 tutopti_Pointer.position();
@@ -178,8 +178,8 @@
                     // Set this to 0 so pointers will be shown
                     $.cookie( 'tutopti-manual', 0 );
                     // Set this to 0 so pointers will be shown
-+                    $.cookie( 'tutopti-stopped', 0 );
-                    // Reload to restart collection
+                  $.cookie( 'tutopti-stopped', 0 );
+                    // Set this to 0 so pointers will be shown
                     window.location.reload();
                 } else {
                     console.log(res.error);

@@ -26,6 +26,9 @@
 			});
 		},
 
+		
+	
+		
 		overlay: function (e) {
 			// Bail out if overlay can't be closed
 			if ( !tutopti_Vars.allowClose ) return;
@@ -163,13 +166,13 @@
 				$('.tutopti-overlay-form #tutopti-order option[value='+ pointer.order +']').attr('selected', 'selected');
 
 				if ( tutopti_Vars.active == 'yes' )
-					$('.tutopti-overlay-form .footer').prepend( '<a class="tutopti-delete" data-id="'+ pointer.post_id +'" href="#">Delete</a>' ); // Inject delete link 
+					$('.tutopti-overlay-form .footer').prepend( '<a class="tutopti-delete" data-id="'+ pointer.post_id +'" href="#">Borrar</a>' ); // Inject delete link 
 
 				// Change button text to Update				
-				$('.tutopti-overlay-form .button-primary').val( 'Update' ); 
+				$('.tutopti-overlay-form .button-primary').val( 'Actualizar' ); 
 
 				// Modify action done
-				tutopti_Vars.actionDone = 'updated';
+				tutopti_Vars.actionDone = 'actualizado';
 
 				// Change action to tutopti_update_pointer
 				$('.tutopti-overlay-form #action').val( 'tutopti_update_pointer' ); 
@@ -239,9 +242,9 @@
 			var that = $(this),
                 data = that.serialize();
 
-            $('.tutopti-overlay-form .footer .button-primary').before('<div class="tutopti-loading">Saving...</div>');
+            $('.tutopti-overlay-form .footer .button-primary').before('<div class="tutopti-loading">Guardando...</div>');
             $('.tutopti-overlay-form .footer .button-primary').addClass( 'tutopti-doing-ajax' );
-            $('.tutopti-overlay-form .footer .button-primary').val('Saving...');
+            $('.tutopti-overlay-form .footer .button-primary').val('Guardando...');
             $.post(tutopti_Vars.ajaxurl, data, function(res) {
             	res = $.parseJSON(res);
 
@@ -249,14 +252,14 @@
                 	var height = $('.tutopti-overlay table').outerHeight(),
 						width = $('.tutopti-overlay table').outerHeight();
 
-                	$('.tutopti-overlay table').html('<p class="tutopti-notify">Custom pointer '+ tutopti_Vars.actionDone +'!</p>');
+                	$('.tutopti-overlay table').html('<p class="tutopti-notify">Marca '+ tutopti_Vars.actionDone +'!</p>');
 					$('.tutopti-overlay table').css({
 						'width': width,
 						'height': height
 					});
 
 					$('.tutopti-overlay .button-primary').remove();
-					$('.tutopti-overlay .footer').html('<input type="button" class="button-primary" value="Okay" />');
+					$('.tutopti-overlay .footer').html('<input type="button" class="button-primary" value="Listo" />');
 					$('.tutopti-overlay .button-primary').on('click', function(){
 						$('.tutopti-overlay').remove();
 						// Allow removal of overlay
@@ -281,8 +284,8 @@
 						'_wpnonce': tutopti_Vars.nonce
 					};
 
-			$('.tutopti-overlay-form .footer .button-primary').before('<div class="tutopti-loading deleting">Deleting...</div>');
-			$('.tutopti-overlay-form .footer .tutopti-delete').text( 'Deleting...' ).css( { 'text-decoration': 'none', 'color': '#6B6B6B' } );
+			$('.tutopti-overlay-form .footer .button-primary').before('<div class="tutopti-loading deleting">Borrando...</div>');
+			$('.tutopti-overlay-form .footer .tutopti-delete').text( 'Borrando...' ).css( { 'text-decoration': 'none', 'color': '#6B6B6B' } );
 			$.post( tutopti_Vars.ajaxurl, data, function(res) {
                 res = $.parseJSON(res);
 
@@ -290,14 +293,14 @@
                 	var height = $('.tutopti-overlay table').outerHeight(),
 						width = $('.tutopti-overlay table').outerHeight();
 
-                	$('.tutopti-overlay table').html('<p class="tutopti-notify">Custom pointer '+ tutopti_Vars.actionDone +'!</p>');
+                	$('.tutopti-overlay table').html('<p class="tutopti-notify">Marca '+ tutopti_Vars.actionDone +'!</p>');
 					$('.tutopti-overlay table').css({
 						'width': width,
 						'height': height
 					});
 
 					$('.tutopti-overlay .button-primary').remove();
-					$('.tutopti-overlay .footer').html('<input type="button" class="button-primary" value="Okay" />');
+					$('.tutopti-overlay .footer').html('<input type="button" class="button-primary" value="Listo" />');
 					$('.tutopti-overlay .button-primary').on('click', function(){
 						$('.tutopti-overlay').remove();
 						// Allow removal of overlay

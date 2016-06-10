@@ -1,9 +1,10 @@
+
 <?php
 /*
-Plugin Name: tutopti - Optimizaclick
+Plugin Name: Optimiza HelpDesk
 Plugin URI: http://www.optimizaclick.com
-Description: Ayuda usuarios
-Author: Desarrollo Optimizaclick
+Description: Plugin de ayuda a usuarios :) 
+Author: Desarrollado por Optimizaclick
 Author URI: http://www.optimizaclick.com
 Version: 0.1
 Copyright: 2016
@@ -29,7 +30,7 @@ class WP_Custom_Pointers {
     /**
      * @var string
      */
-    public $version = '1.0.1';
+    public $version = '0.1';
 
     /**
      * @var string
@@ -54,7 +55,7 @@ class WP_Custom_Pointers {
     /**
      * @var string
      */
-    public $plugin_name = 'Tutopti - Desarrollado por Optimizaclick';
+    public $plugin_name = 'Optimiza Helpdesk - Desarrollado por Optimizaclick';
 
     function __construct() {
         // Define WP_Custom_Pointers constant
@@ -65,28 +66,34 @@ class WP_Custom_Pointers {
 
         // Auto-load classes on demand
         spl_autoload_register( array( $this, 'autoload' ) );
-
+ 
         add_action( 'admin_init', array( $this, 'init' ) );
-        add_action( 'admin_menu', array( $this, 'admin_menu' ) );
         add_action( 'admin_bar_menu', array( $this, 'admin_bar_node'), 999 );
-
+        add_action( 'admin_menu', array( $this, 'admin_menu' ) );
         add_action( 'admin_enqueue_scripts', array($this, 'admin_scripts'), 2000 );
-
         add_action( 'init', array( $this, 'register_post_type' ) );
         add_action( 'init', array( $this, 'register_taxonomy' ) );
 
-        add_action( 'admin_footer', array( $this, 'hide_add_new_link' ) );
 
+      
+        add_action( 'admin_footer', array( $this, 'hide_add_new_link' ) );
+       
         register_activation_hook( __FILE__, array( $this, 'install') );
         register_deactivation_hook( __FILE__, array( $this, 'uninstall') );
         register_deactivation_hook( __FILE__, array( $this, 'deactivate_cron') );
 
+  
         // Include required files
         add_action( 'plugins_loaded', array( $this, 'includes' ));
 
         // Version update notice hook
         add_action( 'update_option__tutopti_version', array($this, 'add_intro_notice') );
     }
+
+
+
+
+
 
     /**
      * Add the introductory notice to the 
@@ -95,6 +102,9 @@ class WP_Custom_Pointers {
         update_user_meta( get_current_user_id(), 'dismiss_first_version_activation_notice_tutopti', false );
     }
 
+ 
+
+ 
     /**
      * Auto-load WP_Custom_Pointers classes on demand to reduce memory consumption.
      *
@@ -202,6 +212,7 @@ class WP_Custom_Pointers {
         // Enqueue scripts
         wp_enqueue_script( 'wp-pointer' );
         wp_enqueue_script( 'jquery-ui-core' );
+        wp_enqueue_script( 'tutopti_help', plugins_url( 'assets/js/prefixfree.min.js', __FILE__ ) );
         wp_enqueue_script( 'tutopti_validate', plugins_url( 'assets/js/jquery.validate.min.js', __FILE__ ) );
         wp_enqueue_script( 'tutopti-mousetrap', plugins_url( 'assets/js/mousetrap.min.js', __FILE__ ) );
         wp_enqueue_script( 'tutopti-cookie', plugins_url( 'assets/js/jquery.cookie.min.js', __FILE__ ) );
@@ -211,7 +222,7 @@ class WP_Custom_Pointers {
         wp_enqueue_script( 'tutopti-create-manual', plugins_url( 'assets/js/create.manual.js', __FILE__ ), '', '', true );
         wp_enqueue_script( 'tutopti-create', plugins_url( 'assets/js/create.js', __FILE__ ), '', '', true );
         wp_enqueue_script( 'tutopti-pointer', plugins_url( 'assets/js/pointer.js', __FILE__ ), '', '', true );
-
+        wp_enqueue_script( 'tutopti-ayuda', plugins_url( 'assets/js/ayuda.js', __FILE__ ), '', '', true );
         // Localize some values
         wp_localize_script( 'tutopti-admin', 'tutopti_Vars', array(
             'ajaxurl' => admin_url( 'admin-ajax.php' ),
@@ -230,7 +241,8 @@ class WP_Custom_Pointers {
         wp_enqueue_style( 'tutopti-admin', plugins_url( 'assets/css/admin.css', __FILE__ ) );
         wp_enqueue_style( 'tutopti-create', plugins_url( 'assets/css/create.css', __FILE__ ) );
         wp_enqueue_style( 'tutopti-pointer', plugins_url( 'assets/css/pointer.css', __FILE__ ) );
-
+     	wp_enqueue_style('font-awesome', plugins_url('assets/css/font-awesome.min.css',__FILE__ ));
+        wp_enqueue_style('boootstrap', plugins_url('assets/css/bootstrap.css',__FILE__ )); 
         if ( tutopti_is_active() ) {
             // Add help tab
             $this->contextual_help();
@@ -246,6 +258,7 @@ class WP_Custom_Pointers {
         require_once dirname( __FILE__ ) . '/includes/html.php';
         require_once dirname( __FILE__ ) . '/includes/functions.php';
         require_once dirname( __FILE__ ) . '/includes/preloads.php';
+        require_once dirname( __FILE__ ) . '/includes/help.php';
     }
 
     /**
@@ -283,6 +296,7 @@ class WP_Custom_Pointers {
             'id'    => 'tutopti-parent',
             'title' => '',
             'href'  => '#',
+
         );
  
         $wp_admin_bar->add_node( $args );
@@ -304,7 +318,7 @@ class WP_Custom_Pointers {
         );
 
         $wp_admin_bar->add_node( $args );
- */
+*/
    $args = array(
             'id'    => 'tutopti-stop',
             'parent' => 'tutopti-parent',
@@ -318,7 +332,7 @@ class WP_Custom_Pointers {
         $args = array(
             'id'    => 'tutopti-dudas',
             'parent' => 'tutopti-parent',
-            'title' => 'Comenta tus dudas',
+            'title' => 'Mail',
             'href'  => 'mailto:vdelrio@optimizaclick.com',
         );
      
@@ -333,19 +347,41 @@ class WP_Custom_Pointers {
      
        $wp_admin_bar->add_node( $args );
        
+               $args = array(
+            'id'    => 'tutopti-restart',
+            'parent' => 'tutopti-parent',
+            'title' => 'Reiniciar',
+            'href'  => '#',
+        );
+
+        $wp_admin_bar->add_node( $args );
+       
     }
 
+        
+     /**
+      * Page to users help
+      *    * @return void
+     */
     
+    // Add menu item for draft posts
+function add_drafts_admin_menu_item() {
+  // $page_title, $menu_title, $capability, $menu_slug, $callback_function
+  add_posts_page(__('Drafts'), __('Drafts'), 'read', 'edit.php?post_status=draft&post_type=post');
+}
+
     
+
+
     /**
      * Register custom post type
      * @return void
      */
     
     
+
    
 
-    
     public function register_post_type() {
         $labels = array(
             'name' => 'Tutopti',
@@ -386,6 +422,8 @@ class WP_Custom_Pointers {
      * Register custom taxonomy
      * @return void
      */
+    
+   
     public function register_taxonomy() {
         $labels = array(
             'name'                => _x( 'Categorias', 'tutopti' ),
@@ -426,6 +464,9 @@ class WP_Custom_Pointers {
                 update_option( '_tutopti_term_id_self', $term['term_id'] ); // Save our term id
         }
     }
+    
+
+   
 
     /**
      * Contextual help
@@ -510,7 +551,7 @@ class WP_Custom_Pointers {
 		
 		if ( get_current_screen()->parent_file == 'edit.php?post_type=tutopti_pointer' ) {
     
-            if ( get_bloginfo( 'version' ) < '3.3' ) { ?>
+            if ( get_bloginfo( 'version' ) < '4.0' ) { ?>
                 <div class="error">
                     <p><?php _e( 'Necesitas una version superior para el funcionamiento correcto', 'tutopti' ); ?></p>
                 </div>
@@ -541,6 +582,7 @@ class WP_Custom_Pointers {
             wp_schedule_event( time(), 'twicedaily', 'tutopti_cron' );
         }
     }
+
 
     /**
      * Deactivate Cron

@@ -29,7 +29,8 @@ class tutopti_Collection {
      * @param string $page_name
      * @return obj collection of pointers for the current screen
      */
-    public function get( $screen_id, $page_name ) {
+ 
+   public function get( $screen_id, $page_name ) {
         $pointer_obj = tutopti_Pointer::getInstance();
 
         // Assign for later use
@@ -40,7 +41,6 @@ class tutopti_Collection {
 
         return $this->prepare();
     }
-
     /**
      * Get collection in a raw form
      *
@@ -59,7 +59,8 @@ class tutopti_Collection {
      * 
      * @return array $pointers
      */
-    public function prepare() {
+   
+ public function prepare() {
         // Bail out if there are no pointers queried
         if ( !$this->pointers )
             return;
@@ -88,7 +89,6 @@ class tutopti_Collection {
 
         return $this->screen( $pointers );
     }
-
     /**
      * Only include pointers that have not been dismissed
      *
@@ -121,6 +121,7 @@ class tutopti_Collection {
      * @param string description
      * @return boolean 
      */
+
     public function add( $title, $description = '' ) {
         $term = wp_insert_term( $title, 'tutopti_collection', array(
                 'description'=> $description
@@ -131,7 +132,6 @@ class tutopti_Collection {
 
         return $term['term_id'];
     }
-
 
     /**
      * Restart collection
