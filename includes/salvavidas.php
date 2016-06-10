@@ -1,5 +1,5 @@
 <div id="mySidenav" class="sidenav"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-<?php include("header.php");?>
+<?php require_once("header.php");?>
 <div class="tuto_content">
     
     <div class="container">
@@ -9,27 +9,71 @@
  <h5>"Si tienes mas dudas <strong>despues</strong> de seguir el tutorial, aquí tienes unos <strong>pequeños aputes</strong> para que puedas guiarte."</h5>
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
+   <h2><i class="fa fa-file-text" aria-hidden="true"></i> PAGINAS</h2>
     <div class="acc-container">
-<div class="acc-btn"><h4 class="selected"><span class="dashicons dashicons-format-aside"></span> ¿Como editar un texto?</h4></div>
+<div class="acc-btn"><h4 class="selected"> ¿Como agregar una página?</h4></div>
 <div class="acc-content open">
   <div class="acc-content-inner">
-    <p>Proin sodales, nibh eget sollicitudin consectetur, elit nisl malesuada urna, ac fermentum turpis urna id augue. Vestibulum eu consectetur nunc. In ultricies erat nisl, a fringilla risus viverra sed. Phasellus vel sodales elit. Morbi nec adipiscing dolor. Vivamus volutpat vitae velit vel sagittis.</p>
+    <p>Agregar o editar una pagina es muy <strong>sencillo</strong>, en el caso de editar solo tienes que irte en tu menú al apartado de "Paginas", a continuación
+    ponerte encima de la "pagina" que te interese y te aparecera un <strong>boton</strong> de editar. En caso de que quieras crear una pagina solo tienes que pinchar aquí
+    <a href="<?php echo $home;?>/wp-admin/post-new.php?post_type=page"><i class="fa fa-hand-pointer-o" aria-hidden="true"> Crear página</i></a>
+    </p>
   </div>
 </div>
-<div class="acc-btn"><h4><span class="dashicons dashicons-format-image"></span> ¿Como subir una foto?</h4></div>
+<div class="acc-btn"><h4> ¿Como usar Visual Composer?</h4></div>
 <div class="acc-content">
   <div class="acc-content-inner">
-    <p>Nulla facilisi. Proin sodales dolor in odio lacinia, ut venenatis massa lobortis. Morbi congue dignissim nisi gravida consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed egestas diam. Nunc ut mauris tempus, rutrum massa vel, pellentesque velit. Nullam eget diam sit amet diam pretium scelerisque. Nunc sed odio nisi. Nunc odio est, rhoncus vitae risus a, sagittis ultrices mauris. Fusce scelerisque posuere pulvinar.</p>
+    <p>La utilizacion de Visual Composer es bastante sencilla ya que todo es visual, de todos modos a continuación os agregamos un enlace
+    en el cual podeis ver un pequeño tutorial de la utilizacion
+    <a href="http://aulacm.com/guia-visual-composer-wordpress/"><i class="fa fa-hand-pointer-o" aria-hidden="true"> Ver más</i></a></p>
   </div>
 </div>
-<div class="acc-btn"><h4><span class="dashicons dashicons-admin-network"></span> ¿Como no se que mas?</h4></div>
-<div class="acc-content">
+<h2><i class="fa fa-sticky-note" aria-hidden="true"></i> PORTFOLIO</h2>
+<div class="acc-container">
+<div class="acc-btn"><h4> ¿Como editar un texto?</h4></div>
+<div class="acc-content open">
   <div class="acc-content-inner">
-    <p>Praesent ultricies risus quis magna convallis, ac condimentum tellus laoreet. Donec dictum velit enim, nec hendrerit leo mattis sit amet.</p>
+    <p>Para editar una entrada existente, desde el Escritorio seleccionamos Páginas.
+    Nos aparecerá una lista de páginas, si hacemos clic en el título de la página, se abrirá la ventana de edición.
+    Podremos realizar entonces los cambios del mismo modo que cuando creamos la página correspondiente.</p>
+  </div>
+</div>
+</div>
+<h2><i class="fa fa-shopping-bag" aria-hidden="true"></i> PRODUCTOS</h2>
+<div class="acc-container">
+<div class="acc-btn"><h4> ¿Como editar un texto?</h4></div>
+<div class="acc-content open">
+  <div class="acc-content-inner">
+    <p>Para editar una entrada existente, desde el Escritorio seleccionamos Páginas.
+    Nos aparecerá una lista de páginas, si hacemos clic en el título de la página, se abrirá la ventana de edición.
+    Podremos realizar entonces los cambios del mismo modo que cuando creamos la página correspondiente.</p>
+  </div>
+</div>
+</div>
+<h2><i class="fa fa-bookmark" aria-hidden="true"></i> ENTRADAS</h2>
+<div class="acc-container">
+<div class="acc-btn"><h4> ¿Como editar un texto?</h4></div>
+<div class="acc-content open">
+  <div class="acc-content-inner">
+    <p>Para editar una entrada existente, desde el Escritorio seleccionamos Páginas.
+    Nos aparecerá una lista de páginas, si hacemos clic en el título de la página, se abrirá la ventana de edición.
+    Podremos realizar entonces los cambios del mismo modo que cuando creamos la página correspondiente.</p>
+  </div>
+</div>
+</div>
+<h2><i class="fa fa-picture-o" aria-hidden="true"></i> MEDIOS</h2>
+<div class="acc-container">
+<div class="acc-btn"><h4> ¿Como editar un texto?</h4></div>
+<div class="acc-content open">
+  <div class="acc-content-inner">
+    <p>Para editar una entrada existente, desde el Escritorio seleccionamos Páginas.
+    Nos aparecerá una lista de páginas, si hacemos clic en el título de la página, se abrirá la ventana de edición.
+    Podremos realizar entonces los cambios del mismo modo que cuando creamos la página correspondiente.</p>
   </div>
 </div>
 </div>
   </div>
     </div>
         </div>
+
 </div><div class="ayuda" onclick="openNav()"><i class="fa fa-life-ring"></i></div></div>

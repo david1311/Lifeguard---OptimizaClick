@@ -38,15 +38,19 @@ em {        background: #0184a1;
   background-color: yellow;
 }
 li {margin-bottom: 0px;}
-
+ .acc-content-inner a{   background: #e8a2a6;
+    color: white !important;
+    padding: 4px;
+    font-family: 'Montserrat';
+    font-weight: 900;
+    border-radius: 4px;}
 /* The navigation menu links */
 .sidenav a {
 
     text-decoration: none;
-    font-size: 25px;
+    font-size: 14px;
     z-index: 99;
     color: #818181;
-    display: block;
     transition: 0.3s;
 }
 

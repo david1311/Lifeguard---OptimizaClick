@@ -1,14 +1,5 @@
 <?php
 
-//Pagina de ayuda de optimizaclick para clientes
-
-function tutopti_help(){
-    ?>
-<?php
-include('documentation.php');?>
-   <?php
-   
-}
 
 //enqueues our locally supplied font awesome stylesheet
 
@@ -17,7 +8,7 @@ include('documentation.php');?>
 function change_footer_admin () {return '&nbsp;';}
 add_filter('admin_footer_text', 'change_footer_admin', 9999);
 function change_footer_version() {
-include('salvavidas.php');
+require_once('salvavidas.php');
 }
 add_filter( 'update_footer', 'change_footer_version', 9999);
 
@@ -25,14 +16,14 @@ add_filter( 'update_footer', 'change_footer_version', 9999);
 
 
 function wpb_custom_logo() {
-echo '<style type="text/css">
+?><style type="text/css">
 #wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {
-background-image: url("http://dev.optimizaclick.es/tutorial/wp-content/plugins/Optimiza_helpdesk/assets/images/logo_admin.png") !important;
+background-image: url("<?php echo get_home_url();?>/wp-content/plugins/Optimiza_helpdesk/assets/images/logo_admin.png") !important;
 background-position: 0 0;
 color:rgba(0, 0, 0, 0); }
 #wpadminbar #wp-admin-bar-wp-logo.hover > .ab-item .ab-icon {
 background-position: 0 0; }
-</style>';
+</style><?php
 }
 
 //hook into the administrative header output
@@ -91,7 +82,3 @@ function update_extra_post_info() {
 }
 }
 // Social Media Sharing Utility
-
- 
-
-       

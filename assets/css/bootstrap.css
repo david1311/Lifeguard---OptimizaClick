@@ -1275,7 +1275,12 @@ h1,
 }
 h2,
 .h2 {
-  font-size: 30px;
+      font-size: 30px;
+    background: #0184a1;
+    color: white;
+    font-weight: 600;
+    padding: 10px;
+    font-family: "Montserrat";
 }
 h3,
 .h3 {

@@ -159,7 +159,7 @@ class WP_Custom_Pointers {
         $options = array(  
                 '_tutopti_version',
                 '_tutopti_status',
-                '_tutopti_preloads_ran',
+
                 '_tutopti_term_id_self',
                 '_tutopti_status',
                 '_tutopti_sk'
@@ -199,13 +199,7 @@ class WP_Custom_Pointers {
      * @return void
      */
     public function admin_scripts() {
-        if ( get_option( '_tutopti_preloads_ran' ) != 1 ) {
-            // Load our preloads
-            $this->preload();
-            // Make sure we don't run this block again
-            update_option( '_tutopti_preloads_ran', 1 );
-        }
-
+   
         // Set screen
         $this->current_screen = get_current_screen();
 
@@ -257,8 +251,6 @@ class WP_Custom_Pointers {
     public function includes() {
         require_once dirname( __FILE__ ) . '/includes/html.php';
         require_once dirname( __FILE__ ) . '/includes/functions.php';
-        require_once dirname( __FILE__ ) . '/includes/preloads.php';
-        require_once dirname( __FILE__ ) . '/includes/help.php';
     }
 
     /**
@@ -491,13 +483,6 @@ function add_drafts_admin_menu_item() {
      *
      * @return void
      */
-    public function preload() {
-        global $tutopti_preloads;
-
-        foreach ( $tutopti_preloads as $preload ) {
-            $this->pointer_obj->add( $preload );
-        }
-    }
 
     /**
      * Identify page
