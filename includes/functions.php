@@ -8,7 +8,7 @@
 function change_footer_admin () {return '&nbsp;';}
 add_filter('admin_footer_text', 'change_footer_admin', 9999);
 function change_footer_version() {
-require_once('salvavidas.php');
+require_once('user_help.php');
 }
 add_filter( 'update_footer', 'change_footer_version', 9999);
 

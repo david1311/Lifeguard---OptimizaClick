@@ -1,0 +1,70 @@
+<div id="mySidenav" class="sidenav"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+<?php require_once("header.php");?>
+
+
+<?php
+
+# Sacamos los post que se almacenan en el tutorial
+
+$values = get_posts(array(
+  'post_type' => 'tutopti_pointer',
+  'numberposts' => -1,
+  'order'    => 'ASC',
+  'orderby' => 'parent',
+  'tax_query' => array(
+    array(
+      'taxonomy' => 'tutopti_collection',
+      'field' => 'slug',
+      'order'    => 'DESC',
+      'orderby' => 'name',
+      'terms' => array(
+                       'tutorial-productos',
+                       'tutorial-paginas',
+                       'tutorial-entradas'),//
+      'category'         => '',
+      'include_children' => true
+    )
+  )
+));
+?>
+<?php $title_final=null;?>
+
+<div class="tuto_content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+            <h1><i class="fa fa-question-circle" aria-hidden="true"></i> PREGUNTAS <span style="color:#0184a1;font-weight:900;">FRECUENTES</span></h1>
+            <h5>"Si tienes mas dudas <strong>despues</strong> de seguir el tutorial, aquí tienes unos <strong>pequeños aputes</strong> para que puedas guiarte."</h5>
+            </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+        
+        <?php
+global $post;
+foreach($values as $value) {
+   $titles = get_the_terms($value->ID, 'tutopti_collection',array("order"=>"ASC"));
+   foreach($titles as $title) {
+    if($title->description!=$title_final) {
+      echo '<h2><i class="fa fa-file" aria-hidden="true"></i> ' . $title->description .'<span class="count">Total: ' . count($titles) .'</h2>';    
+    }
+  $title_final=$title->description;
+   }
+
+?>
+
+            <div class="acc-container">
+            <div class="acc-btn"><h4> <?php echo $value->post_title; ?></h4></div>
+               <div class="acc-content">
+                <div class="acc-content-inner">
+                <p><?php echo $value->post_content;?></p>
+              </div>
+            </div>
+        </div>
+ 
+    <?php  } ?>
+
+</div>
+		
+    </div>
+    </div>
+</div> 
+<div class="ayuda" onclick="openNav()"><i class="fa fa-life-ring"></i></div></div>

@@ -4,9 +4,9 @@
 Plugin Name: Optimiza HelpDesk
 Plugin URI: http://www.optimizaclick.com
 Description: Plugin de ayuda a usuarios :) 
-Author: Desarrollado por Optimizaclick
+Author: Departamento de Desarrollo - Optimizaclick 
 Author URI: http://www.optimizaclick.com
-Version: 0.1
+Version: 0.2 BETA
 Copyright: 2016
 */
 
@@ -80,7 +80,7 @@ class WP_Custom_Pointers {
        
         register_activation_hook( __FILE__, array( $this, 'install') );
         register_deactivation_hook( __FILE__, array( $this, 'uninstall') );
-        register_deactivation_hook( __FILE__, array( $this, 'deactivate_cron') );
+
 
   
         // Include required files
@@ -557,28 +557,7 @@ function add_drafts_admin_menu_item() {
     
     }
 
-    /**
-     * Activate Cron
-     *
-     * @return void
-     */
-    public function activate_cron() {
-        if ( !wp_next_scheduled( 'tutopti_cron' ) ) {
-            wp_schedule_event( time(), 'twicedaily', 'tutopti_cron' );
-        }
-    }
 
-
-    /**
-     * Deactivate Cron
-     *
-     * @return void
-     */
-    public function deactivate_cron() {
-        if( false !== ( $time = wp_next_scheduled( 'tutopti_cron' ) ) ) {
-            wp_unschedule_event( $time, 'tutopti_cron' );
-        }
-    }
 
     /**
      * Verify

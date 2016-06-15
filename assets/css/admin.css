@@ -1,5 +1,5 @@
 
-
+.count {float:right;font-size:15px;line-height:32px;}
 
 .tutopti_help {
     float: right;
@@ -9,8 +9,14 @@
     color: #9a9a9a;
 }
 
-.acc-content.activa{    height: 120px;}
-.acc-content.unactive{    height: 0px;}
+.acc-content.activa{    height: 120px !important;  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;}
+.acc-content.unactive{    height: 0px;  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;}
 .acc-content.open.unactive {
     height: 120px;
 }
@@ -437,6 +443,7 @@ p {
 .ayuda i{    float: right;
     margin: 10px;
     padding: 15px;
+    cursor: pointer;
        background: #0ab0d8;
            border-radius: 100px;
     color: white;
