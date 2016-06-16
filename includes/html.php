@@ -1,10 +1,4 @@
 <?php 
-
-/**
- * Overlay form for pointer creation
- * 
- * @return string
- */
 function tutopti_overlay_auto() { 
 	global $tutopti;
 
@@ -96,8 +90,6 @@ function tutopti_overlay_auto() {
 
 /**
  * Overlay form for pointer creation
- * 
- * @return string
  */
 function tutopti_overlay_manual() { 
 	global $tutopti;
@@ -211,8 +203,6 @@ function tutopti_splash() {
 
 /**
  * Pointer categories dropdown
- * 
- * @return string
  */
 function tutopti_collections_dropdown() {
 	$args = array(
@@ -229,9 +219,6 @@ function tutopti_collections_dropdown() {
 
 /**
  * Contextual help content
- *
- * @param boolean $has_pointers
- * @return string
  */
 function tutopti_contextual_help_content( $has_pointers = false, $finished = false  ) { 
 	ob_start(); ?>

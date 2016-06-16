@@ -1,10 +1,4 @@
 <?php
-
-
-//enqueues our locally supplied font awesome stylesheet
-
-
-
 function change_footer_admin () {return '&nbsp;';}
 add_filter('admin_footer_text', 'change_footer_admin', 9999);
 function change_footer_version() {
@@ -26,21 +20,8 @@ background-position: 0 0; }
 </style><?php
 }
 
-//hook into the administrative header output
 add_action('wp_before_admin_bar_render', 'wpb_custom_logo');
-/**
- * Deactivate this plugin
- *
- * @param string $serial_key
- * @return array
- */
 
-
-/**
- * Checks if plugin is active
- *
- * @return boolean
- */
 function tutopti_is_active() {
     if ( get_option( '_tutopti_status' ) != 'active' )
         return false;
@@ -81,4 +62,3 @@ function update_extra_post_info() {
   register_setting( 'extra-post-info-settings', 'extra_post_info' );
 }
 }
-// Social Media Sharing Utility

@@ -17,10 +17,10 @@ $values = get_posts(array(
       'field' => 'slug',
       'order'    => 'DESC',
       'orderby' => 'name',
-      'terms' => array(
-                       'tutorial-productos',
+      'terms' => array('tutorial-productos',
                        'tutorial-paginas',
-                       'tutorial-entradas'),//
+                       'tutorial-entradas',
+					   'tutorial-gestion',),//
       'category'         => '',
       'include_children' => true
     )
@@ -29,7 +29,7 @@ $values = get_posts(array(
 ?>
 <?php $title_final=null;?>
 
-<div class="tuto_content">
+<div id="tuto_content">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -39,12 +39,11 @@ $values = get_posts(array(
         </div><!-- /.col-lg-6 -->
         
         <?php
-global $post;
 foreach($values as $value) {
    $titles = get_the_terms($value->ID, 'tutopti_collection',array("order"=>"ASC"));
    foreach($titles as $title) {
     if($title->description!=$title_final) {
-      echo '<h2><i class="fa fa-file" aria-hidden="true"></i> ' . $title->description .'<span class="count">Total: ' . count($titles) .'</h2>';    
+      echo '<h2><i class="fa fa-file" aria-hidden="true"></i> ' . $title->description .'<a href="#tuto_content" class="up"><i class="fa fa-caret-square-o-up"></i></a></h2>';    
     }
   $title_final=$title->description;
    }
@@ -52,7 +51,7 @@ foreach($values as $value) {
 ?>
 
             <div class="acc-container">
-            <div class="acc-btn"><h4> <?php echo $value->post_title; ?></h4></div>
+            <div class="acc-btn"><h4><i class="fa fa-plus-square"></i> <?php echo $value->post_title; ?></h4></div>
                <div class="acc-content">
                 <div class="acc-content-inner">
                 <p><?php echo $value->post_content;?></p>
@@ -65,6 +64,7 @@ foreach($values as $value) {
 </div>
 		
     </div>
+
     </div>
 </div> 
 <div class="ayuda" onclick="openNav()"><i class="fa fa-life-ring"></i></div></div>

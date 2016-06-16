@@ -1,9 +1,6 @@
 <?php
-/**
- * Pointer definition 
- */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit; 
 
 if ( ! class_exists( 'tutopti_Pointer' ) ) {
 
@@ -19,13 +16,6 @@ class tutopti_Pointer {
         return self::$instance;
     }
 
-    /**
-     * Get all pointers based on screen id
-     *
-     * @param string $screen_id
-     * @param string $page_name
-     * @return array $pointers
-     */
     public function all( $screen_id, $page_name ) {
         global $wpdb;
 
@@ -77,12 +67,6 @@ class tutopti_Pointer {
         return $pointers;
     }
 
-    /**
-     * Add pointer
-     *
-     * @param array $pointer 
-     * @return int $post_id
-     */
     public function add( $pointer = array() ) {
         $args = array(
             'post_title'    => $pointer['title'],
@@ -119,12 +103,6 @@ class tutopti_Pointer {
         return $post_id;
     }
 
-    /**
-     * Update a pointer
-     *
-     * @param array $pointer
-     * @return int $post_id
-     */
     public function update( $pointer = array() ) {
         $args = array(
             'ID'            => $pointer['post_id'],
@@ -155,12 +133,6 @@ class tutopti_Pointer {
         return $post_id;
     }
 
-    /**
-     * Delete a pointer
-     *
-     * @param int $id
-     * @return boolean true|false
-     */
     public function delete( $id ) {
         $result = wp_delete_post( $id );
 
@@ -170,6 +142,6 @@ class tutopti_Pointer {
         return true;
     }
 
-} // end class
+} 
 
-} // class_exists check
+} 

@@ -24,31 +24,10 @@
            <li><a href="<?php echo $home;?>/wp-admin/post-new.php?post_type=product">Añadir producto</a></li>
           <?php } ?>     
       </ul>
-      <ul class="nav navbar-nav" style="padding-top:10px;">
+      <ul class="nav navbar-nav" style="padding: 10px 30px 0px 0px;float: right;">
           <input type="text" id="searchButton" placeholder="Introduce aquí tu busqueda"></input>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
-<script>
-jQuery('#searchButton').keyup(function(){
-  var jQuerypage = jQuery('.tuto_content p, h4');
-  jQuerypage.each(function(i,a){
-        jQuerya = jQuery(a)
-      jQuerya.html(jQuerya.html().replace(/<em>/g,"").replace(/\<\/em\>/g,""))
-    })
-  var searchedText = jQuery('#searchButton').val();
-  if(searchedText != ""){
-    jQuerypage.each(function(i,a){
-        jQuery( ".acc-content" ).removeClass("unactive").addClass( "activa" );
-      jQuerya = jQuery(a)
-      var html = jQuerya.text().replace(new RegExp("("+searchedText+")", "igm"), "<em>$1</em>")
-      jQuerya.html(html)
-    })
-  }else if (searchedText == ""){
-    jQuery( ".acc-content" ).removeClass("activa").addClass( "unactive" );
-  }
-});
-</script>
 

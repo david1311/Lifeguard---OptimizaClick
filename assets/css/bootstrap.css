@@ -1288,7 +1288,7 @@ h3,
 }
 h4,
 .h4 {
-  font-size: 18px;
+  font-size: 15px;
 text-transform: uppercase;
 font-weight: 900;
 }
@@ -4510,7 +4510,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #f8f8f8;
+  background-color: #f3f3f3;
   border-color: #e7e7e7;
 }
 .navbar-default .navbar-brand {

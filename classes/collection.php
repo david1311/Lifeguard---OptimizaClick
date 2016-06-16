@@ -1,9 +1,6 @@
 <?php
-/**
- * Collection definition 
- */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit; 
 
 if ( ! class_exists( 'tutopti_Collection' ) ) {
 
@@ -21,31 +18,17 @@ class tutopti_Collection {
 
         return self::$instance;
     }
-
-    /**
-     * Get collection
-     *
-     * @param string $screen_id
-     * @param string $page_name
-     * @return obj collection of pointers for the current screen
-     */
  
    public function get( $screen_id, $page_name ) {
         $pointer_obj = tutopti_Pointer::getInstance();
 
-        // Assign for later use
         $this->pointers = $pointer_obj->all( $screen_id, $page_name );
 
-        // For public access
         $this->raw = $this->pointers;
 
         return $this->prepare();
     }
-    /**
-     * Get collection in a raw form
-     *
-     * @return resource $this->raw
-     */
+
     public function get_raw() {
         if ( !$this->raw )
             return;
@@ -54,14 +37,7 @@ class tutopti_Collection {
     }
 
 
-    /**
-     * Prepare pointers
-     * 
-     * @return array $pointers
-     */
-   
  public function prepare() {
-        // Bail out if there are no pointers queried
         if ( !$this->pointers )
             return;
 
@@ -89,24 +65,16 @@ class tutopti_Collection {
 
         return $this->screen( $pointers );
     }
-    /**
-     * Only include pointers that have not been dismissed
-     *
-     * @param array $pointers
-     * @return array $valid_pointers
-     */
+
     public function screen( $pointers = array() ) {
 
         if ( ! $pointers || ! is_array( $pointers ) )
             return;
 
-        // Get dismissed pointers
         $dismissed = explode( ',', (string) get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true ) );
 
-        // Check pointers and remove dismissed ones.
         foreach ( $pointers as $pointer_id => $pointer ) {
 
-            // Make sure we have pointers & check if they have been dismissed
             if ( in_array( $pointer_id, $dismissed ) )
                 unset( $pointers[ $pointer_id ] );
         }
@@ -114,13 +82,6 @@ class tutopti_Collection {
         return array_values( $pointers );
     }
 
-    /**
-     *  Add collection
-     *
-     * @param string $title
-     * @param string description
-     * @return boolean 
-     */
 
     public function add( $title, $description = '' ) {
         $term = wp_insert_term( $title, 'tutopti_collection', array(
@@ -133,19 +94,12 @@ class tutopti_Collection {
         return $term['term_id'];
     }
 
-    /**
-     * Restart collection
-     *
-     * @param array $pointers
-     * @return boolean true|false
-     */
+
     public function restart( $pointers = array() ) {
         $user_id = get_current_user_id();
 
-        // Get dismissed pointers
         $dismissed = $dismissed_bak = explode( ',', (string) get_user_meta( $user_id, 'dismissed_wp_pointers', true ) );
 
-        // Remove dismissed pointers of the current user for the current screen
         for ( $i = 0; $i < sizeof( $pointers ); $i++ ) {
             foreach ( $dismissed as $key => $value ) {
                 if ( $pointers[$i]['pointer_id'] == $value ) 
@@ -153,15 +107,13 @@ class tutopti_Collection {
             }
         }
 
-        // Convert back to comma separated strings
         $dismissed = implode( ',', $dismissed );
 
-        // Save back
         update_user_meta( $user_id, 'dismissed_wp_pointers', $dismissed );
 
         return true; 
     }
 
-} // end class
+}
 
-} // class_exists check
+}

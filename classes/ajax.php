@@ -1,8 +1,4 @@
 <?php
-
-/**
- * Description of ajax
- */
 class tutopti_Ajax {
 
     public function __construct() {
@@ -24,10 +20,6 @@ class tutopti_Ajax {
         add_action( 'wp_ajax_tutopti_deactivate', array( $this, 'deactivate' ) );
     }
 
-    /**
-     * Returns form overlay
-     * @return json object
-     */
     public function overlay_auto() {
         check_ajax_referer( 'tutopti_nonce' );
 
@@ -39,10 +31,6 @@ class tutopti_Ajax {
         exit;
     }
 
-    /**
-     * Returns form overlay
-     * @return json object
-     */
     public function overlay_manual() {
         check_ajax_referer( 'tutopti_nonce' );
 
@@ -54,10 +42,6 @@ class tutopti_Ajax {
         exit;
     }
 
-    /**
-     * Creates pointer
-     * @return json object
-     */
     public function add_pointer() {
         check_ajax_referer( 'tutopti_add_pointer', 'tutopti_nonce' );
 
@@ -80,10 +64,6 @@ class tutopti_Ajax {
         exit;
     }
 
-    /**
-     * Updates a pointer
-     * @return json object
-     */
     public function update_pointer() {
         check_ajax_referer( 'tutopti_add_pointer', 'tutopti_nonce' );
 
@@ -106,10 +86,6 @@ class tutopti_Ajax {
         exit;
     }
 
-    /**
-     * Deletes a pointer
-     * @return json object
-     */
     public function delete_pointer() {
         check_ajax_referer( 'tutopti_nonce' );
 
@@ -132,10 +108,6 @@ class tutopti_Ajax {
         exit;
     }
 
-    /**
-     * Resets collection for the current screen
-     * @return json object
-     */
     public function restart_collection() {
         check_ajax_referer( 'tutopti_nonce' );
 
@@ -158,10 +130,6 @@ class tutopti_Ajax {
         exit;
     }
 
-    /**
-     * Add collection
-     * @return json object
-     */
     public function add_collection() {
         check_ajax_referer( 'tutopti_nonce' );
 
@@ -185,10 +153,6 @@ class tutopti_Ajax {
         exit;
     }
 
-     /**
-     * Returns splash
-     * @return json object
-     */
     public function splash() {
         check_ajax_referer( 'tutopti_nonce' );
 
@@ -200,10 +164,6 @@ class tutopti_Ajax {
         exit;
     }
 
-     /**
-     * Returns splash
-     * @return json object
-     */
     public function dismiss_splash() {
         check_ajax_referer( 'tutopti_nonce' );
 
@@ -216,17 +176,11 @@ class tutopti_Ajax {
         exit;
     }
 
-    /**
-     * Activate this plugin
-     *
-     * @return json object
-     */
     public function activate() {
         check_ajax_referer( 'tutopti_nonce' );
 
         global $tutopti;
 
-        // Check if serial key is valid
         $res = tutopti_is_valid_serial_key( $_POST['serial_key'] );
         if ( !$res['success'] ) {
             echo json_encode(array(
@@ -237,7 +191,6 @@ class tutopti_Ajax {
             exit;
         }
 
-        // Check if item names match
         if ( $res['item_name'] != $tutopti->plugin_name ) {
             echo json_encode(array(
                 'success' => false,
@@ -247,7 +200,6 @@ class tutopti_Ajax {
             exit;
         }
 
-        // Register this IP
         $res = tutopti_register_server_info( $_POST['serial_key'] );
         if ( !$res['success'] ) {
             echo json_encode(array(
@@ -268,11 +220,6 @@ class tutopti_Ajax {
         exit;
     }
 
-    /**
-     * Dectivate this plugin
-     *
-     * @return json object
-     */
     public function deactivate() {
         check_ajax_referer( 'tutopti_nonce' );
 

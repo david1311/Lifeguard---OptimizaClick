@@ -10,61 +10,24 @@ Version: 0.2 BETA
 Copyright: 2016
 */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit; 
 
 if ( ! class_exists( 'WP_Custom_Pointers' ) ) {
 
-// Bootstrap
 class WP_Custom_Pointers {
 
-    /**
-     * @var object
-     */
     private $pointer_obj;
-
-    /**
-     * @var object
-     */
     private $collection_obj;
-
-    /**
-     * @var string
-     */
     public $version = '0.1';
-
-    /**
-     * @var string
-     */
     public $remote_version;
-
-    /**
-     * @var string
-     */
     public $plugin_path;
-
-    /**
-     * @var string
-     */
     public $plugin_uri;
-
-    /**
-     * @var string
-     */
     public $current_screen;
-
-    /**
-     * @var string
-     */
     public $plugin_name = 'Optimiza Helpdesk - Desarrollado por Optimizaclick';
 
     function __construct() {
-        // Define WP_Custom_Pointers constant
         define( 'tutopti_VERSION', $this->version );
-
-        // Admin notices
         add_action( 'admin_notices', array( $this, 'admin_notices' ) );
-
-        // Auto-load classes on demand
         spl_autoload_register( array( $this, 'autoload' ) );
  
         add_action( 'admin_init', array( $this, 'init' ) );
@@ -85,33 +48,13 @@ class WP_Custom_Pointers {
   
         // Include required files
         add_action( 'plugins_loaded', array( $this, 'includes' ));
-
-        // Version update notice hook
         add_action( 'update_option__tutopti_version', array($this, 'add_intro_notice') );
     }
 
-
-
-
-
-
-    /**
-     * Add the introductory notice to the 
-     */
     public function add_intro_notice() {
         update_user_meta( get_current_user_id(), 'dismiss_first_version_activation_notice_tutopti', false );
     }
 
- 
-
- 
-    /**
-     * Auto-load WP_Custom_Pointers classes on demand to reduce memory consumption.
-     *
-     * @access public
-     * @param mixed $class
-     * @return void
-     */
     public function autoload( $class ) {
 
         $name = explode( '_', $class );
@@ -127,12 +70,6 @@ class WP_Custom_Pointers {
         }
     }
     
-    /**
-     * Init WP_Custom_Pointers when WordPress Initialises.
-     *
-     * @access public
-     * @return void
-     */
     public function init() {
         $this->plugin_path = dirname( __FILE__ );
         $this->plugin_uri = plugins_url( '', __FILE__ );
@@ -142,13 +79,8 @@ class WP_Custom_Pointers {
         $this->collection_obj = tutopti_Collection::getInstance();
     }
 
-    /**
-     * Runs the setup when the plugin is installed
-     */
     public function install() {
         update_option( '_tutopti_version', $this->version );
-
-        // Add the intro notice
         $this->add_intro_notice();
     }
 
@@ -195,12 +127,8 @@ class WP_Custom_Pointers {
 
     /**
      * Load all the plugin scripts and styles
-     *
-     * @return void
      */
     public function admin_scripts() {
-   
-        // Set screen
         $this->current_screen = get_current_screen();
 
         // Enqueue scripts
@@ -216,8 +144,7 @@ class WP_Custom_Pointers {
         wp_enqueue_script( 'tutopti-create-manual', plugins_url( 'assets/js/create.manual.js', __FILE__ ), '', '', true );
         wp_enqueue_script( 'tutopti-create', plugins_url( 'assets/js/create.js', __FILE__ ), '', '', true );
         wp_enqueue_script( 'tutopti-pointer', plugins_url( 'assets/js/pointer.js', __FILE__ ), '', '', true );
-        wp_enqueue_script( 'tutopti-ayuda', plugins_url( 'assets/js/ayuda.js', __FILE__ ), '', '', true );
-        // Localize some values
+        wp_enqueue_script( 'tutopti-ayuda', plugins_url( 'assets/js/help.js', __FILE__ ), '', '', true );
         wp_localize_script( 'tutopti-admin', 'tutopti_Vars', array(
             'ajaxurl' => admin_url( 'admin-ajax.php' ),
             'nonce' => wp_create_nonce( 'tutopti_nonce' ),
@@ -245,8 +172,6 @@ class WP_Custom_Pointers {
 
     /**
      * Helper functions
-     *
-     * @return void
      */
     public function includes() {
         require_once dirname( __FILE__ ) . '/includes/html.php';
@@ -255,21 +180,16 @@ class WP_Custom_Pointers {
 
     /**
      * Register the plugin menu
-     *
-     * @return void
      */
     public function admin_menu() {
-        $capability = 'edit_posts'; //minimum level: editor
+        $capability = 'edit_posts'; 
         
         global $submenu;
-        // Disable Add New tab
         unset( $submenu['edit.php?post_type=tutopti_pointer'][10] );
     }
 
     /**
      * Hide link
-     *
-     * @return string
      */
     public function hide_add_new_link() {
         if ( isset($_GET['post_type']) && $_GET['post_type'] == 'tutopti_pointer' ) {
@@ -279,8 +199,6 @@ class WP_Custom_Pointers {
 
     /**
      * Add admin bar menu
-     *
-     * @return void
      */
     public function admin_bar_node( $wp_admin_bar ) {
 
@@ -350,27 +268,10 @@ class WP_Custom_Pointers {
        
     }
 
-        
-     /**
-      * Page to users help
-      *    * @return void
-     */
-    
-    // Add menu item for draft posts
 function add_drafts_admin_menu_item() {
   // $page_title, $menu_title, $capability, $menu_slug, $callback_function
   add_posts_page(__('Drafts'), __('Drafts'), 'read', 'edit.php?post_status=draft&post_type=post');
 }
-
-    
-
-
-    /**
-     * Register custom post type
-     * @return void
-     */
-    
-    
 
    
 
@@ -410,11 +311,7 @@ function add_drafts_admin_menu_item() {
         register_post_type( 'tutopti_pointer', $args );
     }
 
-    /**
-     * Register custom taxonomy
-     * @return void
-     */
-    
+
    
     public function register_taxonomy() {
         $labels = array(
@@ -442,7 +339,6 @@ function add_drafts_admin_menu_item() {
 
         register_taxonomy( 'tutopti_collection', array( 'tutopti_pointer' ), $args );
 
-        // Create our own term for our own collections
         if ( !get_option( '_tutopti_term_id_self' ) ) {
             $term = wp_insert_term(
                 'Tutopti Marcadores personalizados', 
@@ -453,18 +349,11 @@ function add_drafts_admin_menu_item() {
             );
 
             if ( !is_wp_error( $term ) )
-                update_option( '_tutopti_term_id_self', $term['term_id'] ); // Save our term id
+                update_option( '_tutopti_term_id_self', $term['term_id'] );
         }
     }
     
 
-   
-
-    /**
-     * Contextual help
-     *
-     * @return void
-     */
     public function contextual_help() {
         if ( !$this->collection_obj->get_raw() )
             $content = tutopti_contextual_help_content( false );
@@ -478,36 +367,21 @@ function add_drafts_admin_menu_item() {
         ) );
     }
 
-    /**
-     * Preload
-     *
-     * @return void
-     */
 
-    /**
-     * Identify page
-     *
-     * @return $page
-     */
     public function get_page() {
         global $pagenow, $post;
 
-        // Get page name
-        if ( $post->ID && is_string( $post->ID ) ) // If page is a post entry. Ex: Pages -> All Pages -> Frontpage
+        if ( $post->ID && is_string( $post->ID ) ) 
             $page = $post->ID;
-        else if ( $_GET['page'] ) // If page is a submenu of the menu and is a custom page. Ex: Custom Post Type Menu -> Settings(Settings is usually a custom page)
+        else if ( $_GET['page'] ) 
             $page = $_GET['page'];
         else
-            $page = $pagenow; // If page is a submenu of the menu. Ex: Pages -> All Pages
+            $page = $pagenow; 
 
         return $page;
     }
 
-    /**
-     * Admin notices
-     *
-     * @return void
-     */
+ 
     public function admin_notices() {
         
 		$dismiss_coupon_reminder_tutopti = get_user_option( 'dismiss_coupon_reminder_tutopti' );
@@ -529,7 +403,7 @@ function add_drafts_admin_menu_item() {
         
             <?php
             
-            // Deactivate notice
+
             update_user_meta( get_current_user_id(), 'dismiss_first_version_activation_notice_tutopti', true );
         }
 		
@@ -553,17 +427,10 @@ function add_drafts_admin_menu_item() {
      
         endif;
         
-        } // End of get_current_screen()->parent_base == 'ptp_tutopti_pointer'
+        } 
     
     }
 
-
-
-    /**
-     * Verify
-     *
-     * @return void
-     */
     public function verify() {
         $res = tutopti_verify();
 
@@ -577,4 +444,4 @@ function add_drafts_admin_menu_item() {
 
 $GLOBALS['tutopti'] = new WP_Custom_Pointers();
 
-} // class_exists check
+} 
