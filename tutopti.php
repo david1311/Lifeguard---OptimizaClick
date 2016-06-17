@@ -6,8 +6,8 @@ Plugin URI: http://www.optimizaclick.com
 Description: Plugin de ayuda a usuarios :) 
 Author: Departamento de Desarrollo - Optimizaclick 
 Author URI: http://www.optimizaclick.com
-Version: 0.2 BETA
-Copyright: 2016
+Version: 1.0
+Copyright: 2016 - 2xxx
 */
 
 if ( ! defined( 'ABSPATH' ) ) exit; 
@@ -18,7 +18,7 @@ class WP_Custom_Pointers {
 
     private $pointer_obj;
     private $collection_obj;
-    public $version = '0.1';
+    public $version = '1.0';
     public $remote_version;
     public $plugin_path;
     public $plugin_uri;
@@ -176,6 +176,7 @@ class WP_Custom_Pointers {
     public function includes() {
         require_once dirname( __FILE__ ) . '/includes/html.php';
         require_once dirname( __FILE__ ) . '/includes/functions.php';
+         require_once dirname( __FILE__ ) . '/includes/cron.php';
     }
 
     /**
@@ -445,3 +446,5 @@ function add_drafts_admin_menu_item() {
 $GLOBALS['tutopti'] = new WP_Custom_Pointers();
 
 } 
+
+
