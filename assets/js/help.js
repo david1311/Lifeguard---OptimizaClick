@@ -10,7 +10,7 @@ function closeNav() {
 
 
 jQuery('#searchButton').keyup(function(){
-  var jQuerypage = jQuery('.tuto_content p, h4');
+  var jQuerypage = jQuery('#tuto_content p, .acc-btn .one, .acc-content-inner');
   jQuerypage.each(function(i,a){
         jQuerya = jQuery(a)
       jQuerya.html(jQuerya.html().replace(/<em>/g,"").replace(/\<\/em\>/g,""))
@@ -26,6 +26,15 @@ jQuery('#searchButton').keyup(function(){
   }else if (searchedText == ""){
     jQuery( ".acc-content" ).removeClass("activa").addClass( "unactive" );
   }
+});
+
+
+jQuery('#goto').click(function(){
+    jQuery(".acc-content-inner em ").addClass("select");
+    jQuery('.sidenav').animate({
+      scrollTop: (jQuery('.select').first().offset().top)
+    },1500);
+
 });
 
 
@@ -47,3 +56,4 @@ jQuery(document).ready(function() {
         return false;
     })
 });
+

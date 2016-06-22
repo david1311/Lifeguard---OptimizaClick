@@ -290,7 +290,7 @@ function add_drafts_admin_menu_item() {
             'not_found' =>  'No hay notas encontradas',
             'not_found_in_trash' => 'No hay notas en la papelera', 
             'parent_item_colon' => '',
-            'menu_name' => 'Tutopti'
+            'menu_name' => 'Optimiza - Gestor'
         );
 
           $args = array(

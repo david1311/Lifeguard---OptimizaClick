@@ -2,7 +2,10 @@
    	width: 10px;
 	background-color: #F5F5F5;
 }
- 
+#goto:focus {outline: hidden !important;}
+#goto {color:#0184a1;
+    background: transparent;
+    border: none;}
 .sidenav::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	background-color: #F5F5F5;

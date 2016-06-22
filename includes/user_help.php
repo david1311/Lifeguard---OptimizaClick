@@ -51,7 +51,7 @@ foreach($values as $value) {
 ?>
 
             <div class="acc-container">
-            <div class="acc-btn"><h4><i class="fa fa-plus-square"></i> <?php echo $value->post_title; ?></h4></div>
+            <div class="acc-btn"><h4><i class="fa fa-plus-square"></i> <span class="one"><?php echo $value->post_title; ?></span></h4></div>
                <div class="acc-content">
                 <div class="acc-content-inner">
                 <p><?php echo $value->post_content;?></p>
