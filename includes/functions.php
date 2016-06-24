@@ -36,7 +36,9 @@ function update_extra_post_info() {
     }
 }
 
-
-
+$filters = array('pre_term_description', 'pre_link_description', 'pre_link_notes', 'pre_user_description');
+foreach ( $filters as $filter ) {
+    remove_filter($filter, 'wp_filter_kses');
+}
 
 

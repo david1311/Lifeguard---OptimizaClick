@@ -32,7 +32,7 @@ jQuery('#searchButton').keyup(function(){
 jQuery('#goto').click(function(){
     jQuery(".acc-content-inner em ").addClass("select");
     jQuery('.sidenav').animate({
-      scrollTop: (jQuery('.select').first().offset().top)
+      scrollTop: (jQuery('.select').fist().offset().top)
     },1500);
 
 });
@@ -41,7 +41,7 @@ jQuery('#goto').click(function(){
 
 jQuery(document).ready(function() {
     var offset = 220;
-    var duration = 500;
+    var duration = 600;
     jQuery(window).scroll(function() {
         if (jQuery(this).scrollTop() > offset) {
             jQuery('.up').fadeIn(duration);

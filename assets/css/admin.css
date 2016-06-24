@@ -2,6 +2,9 @@
    	width: 10px;
 	background-color: #F5F5F5;
 }
+#wpfooter a:hover {
+    text-decoration: none;
+}
 #goto:focus {outline: hidden !important;}
 #goto {color:#0184a1;
     background: transparent;
@@ -527,3 +530,17 @@ margin-top:2px;
    display: none !important;
 
 }
+
+li#wp-admin-bar-wporg {
+    display: none;
+}
+li#wp-admin-bar-about {display:none;}
+li#wp-admin-bar-documentation {
+    display: none;
+}
+li#wp-admin-bar-support-forums {display: none;}
+li#wp-admin-bar-feedback {display: none;}
+ul#wp-admin-bar-wp-logo-default {
+    display: none;
+}
+#wpadminbar .quicklinks .menupop ul.ab-sub-secondary {display: none;}

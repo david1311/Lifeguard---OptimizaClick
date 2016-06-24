@@ -22,6 +22,7 @@
           <?php
             if ( class_exists( 'WooCommerce' ) ) {?>
            <li><a href="<?php echo $home;?>/wp-admin/post-new.php?post_type=product">Añadir producto</a></li>
+           <li><a href="<?php echo $home;?>/wp-admin/edit.php?post_type=shop_order">Pedidos</a></li>
           <?php } ?>     
       </ul>
       <ul class="nav navbar-nav" style="padding: 10px 30px 0px 0px;float: right;">
@@ -31,4 +32,3 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-

@@ -43,7 +43,7 @@ foreach($values as $value) {
    $titles = get_the_terms($value->ID, 'tutopti_collection',array("order"=>"ASC"));
    foreach($titles as $title) {
     if($title->description!=$title_final) {
-      echo '<h2><i class="fa fa-file" aria-hidden="true"></i> ' . $title->description .'<a href="#tuto_content" class="up"><i class="fa fa-caret-square-o-up"></i></a></h2>';    
+      echo '<h2> ' . $title->description .'<a href="#tuto_content" class="up"><i class="fa fa-caret-square-o-up"></i></a></h2>';    
     }
   $title_final=$title->description;
    }
@@ -67,4 +67,7 @@ foreach($values as $value) {
 
     </div>
 </div> 
-<div class="ayuda" onclick="openNav()"><i class="fa fa-life-ring"></i></div></div>
+	<div class="ayuda" onclick="openNav()">
+		<i class="fa fa-life-ring"></i>
+	</div>
+</div>
