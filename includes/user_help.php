@@ -20,7 +20,7 @@ $values = get_posts(array(
       'terms' => array('tutorial-productos',
                        'tutorial-paginas',
                        'tutorial-entradas',
-					   'tutorial-gestion',),//
+					   'tutorial-gestor',),//
       'category'         => '',
       'include_children' => true
     )

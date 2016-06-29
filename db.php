@@ -1,15 +1,12 @@
 <?php
 
-$filters = array('pre_term_description', 'pre_link_description', 'pre_link_notes', 'pre_user_description');
-foreach ( $filters as $filter ) {
-    remove_filter($filter, 'wp_filter_kses');
-}
+
 
 wp_insert_term(
     'Tutorial - Productos',   // the term 
     'lifeguard_contents', // the taxonomy
     array(
-        'description' => '<i class="fa fa-shopping-bag"> PRODUCTOS',
+        'description' => 'PRODUCTOS',
         'slug'        => 'tutorial-productos',
     ));
          
@@ -17,27 +14,26 @@ wp_insert_term(
     'Tutorial - Entradas',   // the term 
     'lifeguard_contents', // the taxonomy
     array(
-        'description' => '<i class="fa fa-hashtag"> ENTRADAS',
+        'description' => 'ENTRADAS',
         'slug'        => 'tutorial-entradas',
     ));
           wp_insert_term(
     'Tutorial - Paginas',   // the term 
     'lifeguard_contents', // the taxonomy
     array(
-        'description' => '<i class="fa fa-sticky-note"> PAGINAS',
+        'description' => 'PAGINAS',
         'slug'        => 'tutorial-paginas',
     ));
           wp_insert_term(
     'Tutorial - Gestor',   // the term 
     'lifeguard_contents', // the taxonomy
     array(
-        'description' => '<i class="fa fa-shopping-cart> PEDIDOS',
+        'description' => 'PEDIDOS',
         'slug'        => 'tutorial-gestor',
     ));
          
  
-$gestor = get_term_by('slug', 'tutorial-gestor', 'lifeguard_contents'); 
-$gestores = $gestor->term_id;
+
 
 $producto = get_term_by('slug', 'tutorial-productos', 'lifeguard_contents'); 
 $productos = $producto->term_id;
@@ -47,7 +43,9 @@ $entradas = $entrada->term_id;
 
 $pagina = get_term_by('slug', 'tutorial-paginas', 'lifeguard_contents'); 
 $paginas = $pagina->term_id;
-         
+
+$gestor = get_term_by('slug', 'tutorial-gestor', 'lifeguard_contents'); 
+$gestores = $gestor->term_id;    
          
     // PAGINAS - TUTORIALES
      
