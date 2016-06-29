@@ -5,6 +5,7 @@
 #wpfooter a:hover {
     text-decoration: none;
 }
+#adminmenu .wp-menu-image img {padding:4px 0 0 !important;}
 #goto:focus {outline: hidden !important;}
 #goto {color:#0184a1;
     background: transparent;

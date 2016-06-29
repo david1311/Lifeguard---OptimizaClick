@@ -202,7 +202,6 @@ class WP_Custom_Pointers {
     public function includes() {
         require_once dirname( __FILE__ ) . '/includes/html.php';
         require_once dirname( __FILE__ ) . '/includes/functions.php';
-         require_once dirname( __FILE__ ) . '/includes/cron.php';
          require_once dirname( __FILE__ ) . '/includes/preloads.php';
     }
 
@@ -313,9 +312,9 @@ function add_drafts_admin_menu_item() {
             'capability_type' => 'post',
             'has_archive' => true, 
             'hierarchical' => false,
-            'menu_position' => null,
+            'menu_position' => 82,
             'supports' => array(),
-           /* 'menu_icon' => plugins_url( '', __FILE__ ) . '' */
+         'menu_icon' => plugins_url( '', __FILE__ ) . '/assets/images/menu-icon.png'
         ); 
 
         register_post_type( 'lifeguard_pointer', $args );
