@@ -1,74 +1,74 @@
 ;(function ($) {
 	// Global vars
-	tutopti_Vars.ovarlayAuto = '',
-	tutopti_Vars.ovarlayManual = '',
-	tutopti_Vars.elName = '',
-	tutopti_Vars.allowClose = true,
-	tutopti_Vars.actionDone = 'creado',
-	tutopti_Vars.statusOverlayClass = 'tutopti-status-overlay',
-	tutopti_Vars.statusOverlayDataAttr = 'idclass',
-	tutopti_Vars.newCollection = {};
+	lifeguard_Vars.ovarlayAuto = '',
+	lifeguard_Vars.ovarlayManual = '',
+	lifeguard_Vars.elName = '',
+	lifeguard_Vars.allowClose = true,
+	lifeguard_Vars.actionDone = 'creado',
+	lifeguard_Vars.statusOverlayClass = 'lifeguard-status-overlay',
+	lifeguard_Vars.statusOverlayDataAttr = 'idclass',
+	lifeguard_Vars.newCollection = {};
 
 	// Control
-	tutopti_Create = {
+	lifeguard_Create = {
 		init: function () {
-			if ( $.cookie('tutopti-auto') == 1 || $.cookie('tutopti-manual') == 1 ) {
+			if ( $.cookie('lifeguard-auto') == 1 || $.cookie('lifeguard-manual') == 1 ) {
 				// Delay it a little to allow elements added by javascripts are loaded first
            	 	setTimeout(function(){
-					tutopti_Create.statusOverlay();
-                    tutopti_Create_Auto.init();
-                    tutopti_Create_Manual.init();
+					lifeguard_Create.statusOverlay();
+                    lifeguard_Create_Auto.init();
+                    lifeguard_Create_Manual.init();
 				}, 1000 );
            	}
 
-            if ( tutopti_Vars.active == 'yes' )
-                $( document ).on( 'keypress', '.tutopti-new-collection', tutopti_Create.quickAddCollection ); // Quick add collection
+            if ( lifeguard_Vars.active == 'yes' )
+                $( document ).on( 'keypress', '.lifeguard-new-collection', lifeguard_Create.quickAddCollection ); // Quick add collection
 
             // Toggle on/off collection dropdown
-            $( document ).on( 'click', '.tutopti-add-collection', function(){
+            $( document ).on( 'click', '.lifeguard-add-collection', function(){
                 $( this ).closest( 'p' ).fadeOut(function(){
                     $( this ).closest( 'p' ).next().fadeIn();
                 });
             });
-            $( document ).on( 'click', '.tutopti-cancel-add-collection', function(){
+            $( document ).on( 'click', '.lifeguard-cancel-add-collection', function(){
                 $( this ).closest( 'p' ).fadeOut(function(){
                     $( this ).closest( 'p' ).prev().fadeIn();
                 });
             });
 
             // Disable Align values based the selected Edge value
-            $( document ).on( 'change', '#tutopti-edge', function(){
+            $( document ).on( 'change', '#lifeguard-edge', function(){
                 if ( $( this ).val() == 'left' || $( this ).val() == 'right' ) {
-                    $( '#tutopti-align' ).children( 'option:disabled' ).prop( 'disabled', false );
-                    $( '#tutopti-align' ).children( 'option[value=left], option[value=right]' ).prop( 'disabled', 'disabled' );
+                    $( '#lifeguard-align' ).children( 'option:disabled' ).prop( 'disabled', false );
+                    $( '#lifeguard-align' ).children( 'option[value=left], option[value=right]' ).prop( 'disabled', 'disabled' );
                 } else {
-                    $( '#tutopti-align' ).children( 'option:disabled' ).prop( 'disabled', false );
-                    $( '#tutopti-align' ).children( 'option[value=top], option[value=bottom]' ).prop( 'disabled', 'disabled' );
+                    $( '#lifeguard-align' ).children( 'option:disabled' ).prop( 'disabled', false );
+                    $( '#lifeguard-align' ).children( 'option[value=top], option[value=bottom]' ).prop( 'disabled', 'disabled' );
                 }
             });
 
             // Tooltip
-            $( document ).on( 'mouseover', '.tutopti-overlay .tool-tip-icon', tutopti_Create.toggleTooltip );
-            $( document ).on( 'mouseout', '.tutopti-overlay .tool-tip-icon', tutopti_Create.toggleTooltip );
+            $( document ).on( 'mouseover', '.lifeguard-overlay .tool-tip-icon', lifeguard_Create.toggleTooltip );
+            $( document ).on( 'mouseout', '.lifeguard-overlay .tool-tip-icon', lifeguard_Create.toggleTooltip );
 
             // Toggles for auto/manual/stop modes.
-            $('#wp-admin-bar-tutopti-auto').on('click', '> a', tutopti_Create.auto);
-            $('#wp-admin-bar-tutopti-manual').on('click', '> a', tutopti_Create.manual);
-            $('#wp-admin-bar-tutopti-stop').on('click', '> a', tutopti_Create.stop);
+            $('#wp-admin-bar-lifeguard-auto').on('click', '> a', lifeguard_Create.auto);
+            $('#wp-admin-bar-lifeguard-manual').on('click', '> a', lifeguard_Create.manual);
+            $('#wp-admin-bar-lifeguard-stop').on('click', '> a', lifeguard_Create.stop);
 
             // Indicate which mode is currently running
-            if ( $.cookie( 'tutopti-auto' ) == 1 || $.cookie( 'tutopti-manual' ) == 1 ) {
-                $('#wp-admin-bar-tutopti-parent > a').addClass( 'running' );
+            if ( $.cookie( 'lifeguard-auto' ) == 1 || $.cookie( 'lifeguard-manual' ) == 1 ) {
+                $('#wp-admin-bar-lifeguard-parent > a').addClass( 'running' );
 
                 // Change text of the admin bar menu depending on the state
-                if ( $.cookie( 'tutopti-auto' ) == 1 )
-                    $('#wp-admin-bar-tutopti-parent > a').text( 'Auto' );
-                else if ( $.cookie( 'tutopti-manual' ) == 1 )
-                    $('#wp-admin-bar-tutopti-parent > a').text( 'Manual' );
+                if ( $.cookie( 'lifeguard-auto' ) == 1 )
+                    $('#wp-admin-bar-lifeguard-parent > a').text( 'Auto' );
+                else if ( $.cookie( 'lifeguard-manual' ) == 1 )
+                    $('#wp-admin-bar-lifeguard-parent > a').text( 'Manual' );
                     
             } else {
-                $('#wp-admin-bar-tutopti-parent > a').removeClass( 'running' );
-                $('#wp-admin-bar-tutopti-parent > a').text( '' );
+                $('#wp-admin-bar-lifeguard-parent > a').removeClass( 'running' );
+                $('#wp-admin-bar-lifeguard-parent > a').text( '' );
             }
 		},
 
@@ -76,11 +76,11 @@
 			e.preventDefault();
 
 			// Set to auto
-			$.cookie( 'tutopti-auto', 1 );
+			$.cookie( 'lifeguard-auto', 1 );
 			// Disable manual
-			$.cookie( 'tutopti-manual', 0 );
+			$.cookie( 'lifeguard-manual', 0 );
             // Remove stopped indication
-            $.cookie( 'tutopti-stopped', 0 );
+            $.cookie( 'lifeguard-stopped', 0 );
 
 			window.location.reload();
 		},
@@ -89,11 +89,11 @@
 			e.preventDefault();
 
 			// Disable auto
-			$.cookie( 'tutopti-auto', 0 );
+			$.cookie( 'lifeguard-auto', 0 );
 			// Enable manual
-			$.cookie( 'tutopti-manual', 1 );;
+			$.cookie( 'lifeguard-manual', 1 );;
             // Remove stopped indication
-            $.cookie( 'tutopti-stopped', 0 );
+            $.cookie( 'lifeguard-stopped', 0 );
 
 			window.location.reload();
 		},
@@ -102,32 +102,32 @@
 			e.preventDefault();
 
 			// Disable auto
-			$.cookie( 'tutopti-auto', 0 );
+			$.cookie( 'lifeguard-auto', 0 );
 			// Disable manual
-			$.cookie( 'tutopti-manual', 0 );
+			$.cookie( 'lifeguard-manual', 0 );
             // Indicate that add mode was stopped. This will be used to prevent newly added pointers to appear upon stopping add mode.
-            $.cookie( 'tutopti-stopped', 1 );
+            $.cookie( 'lifeguard-stopped', 1 );
 
 			window.location.reload();
 		},
 
 		statusOverlay: function (e) {
-			if ( !tutopti_Vars.pointers_raw ) return;
+			if ( !lifeguard_Vars.pointers_raw ) return;
 
 			// Donnot allow add on our own page
-            if ( tutopti_Vars.screen_id == 'edit-tutopti_pointer' ) return;
+            if ( lifeguard_Vars.screen_id == 'edit-lifeguard_pointer' ) return;
 
-			for ( var i = 0; i < tutopti_Vars.pointers_raw.length; i++ ) {
+			for ( var i = 0; i < lifeguard_Vars.pointers_raw.length; i++ ) {
 				// Add a border effect around element that has a pointer				
-				$( 'body' ).append( '<div class="tutopti-status-overlay" id="tutopti-status-overlay-'+ i +'" data-idclass="'+ tutopti_Vars.pointers_raw[i]['target'] +'" />' );
+				$( 'body' ).append( '<div class="lifeguard-status-overlay" id="lifeguard-status-overlay-'+ i +'" data-idclass="'+ lifeguard_Vars.pointers_raw[i]['target'] +'" />' );
 
-				if ( !$( '#tutopti-status-overlay-'+ i ).length || !$( tutopti_Vars.pointers_raw[i]['target'] ).length ) return;
+				if ( !$( '#lifeguard-status-overlay-'+ i ).length || !$( lifeguard_Vars.pointers_raw[i]['target'] ).length ) return;
 
-				var offset = $( tutopti_Vars.pointers_raw[i]['target'] ).offset();
+				var offset = $( lifeguard_Vars.pointers_raw[i]['target'] ).offset();
 
-	    		$( '#tutopti-status-overlay-'+ i ).css({
-	    			'width': $( tutopti_Vars.pointers_raw[i]['target'] ).outerWidth() + 'px',
-        			'height': $( tutopti_Vars.pointers_raw[i]['target'] ).outerHeight() + 'px',
+	    		$( '#lifeguard-status-overlay-'+ i ).css({
+	    			'width': $( lifeguard_Vars.pointers_raw[i]['target'] ).outerWidth() + 'px',
+        			'height': $( lifeguard_Vars.pointers_raw[i]['target'] ).outerHeight() + 'px',
         			'left': offset.left - 4 + 'px',
         			'top': offset.top - 4 + 'px',
 	    		});
@@ -135,7 +135,7 @@
 		},
 
         quickAddCollection: function (e) {
-            if ( tutopti_Vars.active != 'yes' ) return;
+            if ( lifeguard_Vars.active != 'yes' ) return;
 
             var that = $( this ),
                 code = e.keyCode || e.which; 
@@ -146,34 +146,34 @@
             e.preventDefault();
 
             var data = {
-                        action: 'tutopti_add_collection',
+                        action: 'lifeguard_add_collection',
                         title: that.val(),
-                        '_wpnonce': tutopti_Vars.nonce
+                        '_wpnonce': lifeguard_Vars.nonce
                     };
 
-            $( '.tutopti-cancel-add-collection' ).hide();
-            $( '.tutopti-new-collection' ).after( '<div class="tutopti-loading adding-collection">Guardando...</div>' );
+            $( '.lifeguard-cancel-add-collection' ).hide();
+            $( '.lifeguard-new-collection' ).after( '<div class="lifeguard-loading adding-collection">Guardando...</div>' );
 
-            $.post( tutopti_Vars.ajaxurl, data, function(res) {
+            $.post( lifeguard_Vars.ajaxurl, data, function(res) {
                 res = $.parseJSON(res);
 
                 if( res.success ) {
                     // Assign for later use
-                    tutopti_Vars.newCollection.id = res.term_id; 
-                    tutopti_Vars.newCollection.name = that.val(); 
+                    lifeguard_Vars.newCollection.id = res.term_id; 
+                    lifeguard_Vars.newCollection.name = that.val(); 
 
                     // Append newly added collection to the dropdown
-                    $( '#tutopti-collection' ).append( '<option value="'+ res.term_id +'">'+ that.val() +'</option>' );
+                    $( '#lifeguard-collection' ).append( '<option value="'+ res.term_id +'">'+ that.val() +'</option>' );
                     // Deselect pre-selected option
-                    $( '#tutopti-collection' ).children( 'option:selected' ).prop( 'selected', false );
+                    $( '#lifeguard-collection' ).children( 'option:selected' ).prop( 'selected', false );
                     // Set newly added collection as selected
-                    $( '#tutopti-collection' ).children( 'option[value='+ res.term_id +']' ).prop( 'selected', 'selected' );
+                    $( '#lifeguard-collection' ).children( 'option[value='+ res.term_id +']' ).prop( 'selected', 'selected' );
                     // Remove spinner
                     $( '.adding-collection' ).remove();
                     // Unhide cancel button
-                    $( '.tutopti-cancel-add-collection' ).show();
+                    $( '.lifeguard-cancel-add-collection' ).show();
                     // Put the dropdown back in place
-                    $( '.tutopti-cancel-add-collection' ).trigger( 'click' );
+                    $( '.lifeguard-cancel-add-collection' ).trigger( 'click' );
                 } else {
                     console.log( res.error );
                 }
@@ -184,16 +184,16 @@
             var that = $( this );
 
             // Remove if present
-            if ( $( '.tutopti-overlay .tool-tip' ).length ) {
-                $( '.tutopti-overlay .tool-tip' ).remove();
+            if ( $( '.lifeguard-overlay .tool-tip' ).length ) {
+                $( '.lifeguard-overlay .tool-tip' ).remove();
                 return;
             }
 
             // Append tooltip
             that.after( '<div class="tool-tip"></div>' );
             // Inject text
-            $( '.tutopti-overlay .tool-tip' ).html( that.data( 'text' ) ).css({
-                'left': that.position().left - ( ( $( '.tutopti-overlay .tool-tip' ).outerWidth() - that.outerWidth() ) / 2 ) + 'px',
+            $( '.lifeguard-overlay .tool-tip' ).html( that.data( 'text' ) ).css({
+                'left': that.position().left - ( ( $( '.lifeguard-overlay .tool-tip' ).outerWidth() - that.outerWidth() ) / 2 ) + 'px',
                 'top': that.position().top + that.outerHeight() + 6 + 'px' 
             });
         }
@@ -202,7 +202,7 @@
     //dom ready
     $(function() {
     	// Initialize create
-    	tutopti_Create.init();
+    	lifeguard_Create.init();
     });
 
 })(jQuery);

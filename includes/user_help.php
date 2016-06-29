@@ -7,13 +7,13 @@
 # Sacamos los post que se almacenan en el tutorial
 
 $values = get_posts(array(
-  'post_type' => 'tutopti_pointer',
+  'post_type' => 'lifeguard_pointer',
   'numberposts' => -1,
   'order'    => 'ASC',
   'orderby' => 'parent',
   'tax_query' => array(
     array(
-      'taxonomy' => 'tutopti_collection',
+      'taxonomy' => 'lifeguard_contents',
       'field' => 'slug',
       'order'    => 'DESC',
       'orderby' => 'name',
@@ -40,7 +40,7 @@ $values = get_posts(array(
         
         <?php
 foreach($values as $value) {
-   $titles = get_the_terms($value->ID, 'tutopti_collection',array("order"=>"ASC"));
+   $titles = get_the_terms($value->ID, 'lifeguard_contents',array("order"=>"ASC"));
    foreach($titles as $title) {
     if($title->description!=$title_final) {
       echo '<h2> ' . $title->description .'<a href="#tuto_content" class="up"><i class="fa fa-caret-square-o-up"></i></a></h2>';    

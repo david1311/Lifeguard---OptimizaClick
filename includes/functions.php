@@ -22,8 +22,8 @@ background-position: 0 0; }
 
 add_action('wp_before_admin_bar_render', 'wpb_custom_logo');
 
-function tutopti_is_active() {
-    if ( get_option( '_tutopti_status' ) != 'active' )
+function lifeguard_is_active() {
+    if ( get_option( '_lifeguard_status' ) != 'active' )
         return false;
 
     return true;
@@ -40,5 +40,4 @@ $filters = array('pre_term_description', 'pre_link_description', 'pre_link_notes
 foreach ( $filters as $filter ) {
     remove_filter($filter, 'wp_filter_kses');
 }
-
 

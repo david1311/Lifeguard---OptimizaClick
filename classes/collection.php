@@ -2,9 +2,9 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; 
 
-if ( ! class_exists( 'tutopti_Collection' ) ) {
+if ( ! class_exists( 'lifeguard_Collection' ) ) {
 
-class tutopti_Collection {
+class lifeguard_Collection {
     
     private static $instance;  
 
@@ -13,14 +13,14 @@ class tutopti_Collection {
 
     public static function getInstance() {
         if ( !self::$instance ) {
-            self::$instance = new tutopti_Collection();
+            self::$instance = new lifeguard_Collection();
         }
 
         return self::$instance;
     }
  
    public function get( $screen_id, $page_name ) {
-        $pointer_obj = tutopti_Pointer::getInstance();
+        $pointer_obj = lifeguard_Pointer::getInstance();
 
         $this->pointers = $pointer_obj->all( $screen_id, $page_name );
 
@@ -51,8 +51,8 @@ class tutopti_Collection {
                     'target' => $pointer->target,
                     'options' => array(
                         'content' => sprintf( '<h3> %s </h3> <p> %s </p>',
-                            __( $pointer->post_title , 'tutopti' ),
-                            __( $pointer->post_content, 'tutopti' )
+                            __( $pointer->post_title , 'lifeguard' ),
+                            __( $pointer->post_content, 'lifeguard' )
                         ),
                         'position' => array( 
                             'edge' => $pointer->edge, 
@@ -84,7 +84,7 @@ class tutopti_Collection {
 
 
     public function add( $title, $description = '' ) {
-        $term = wp_insert_term( $title, 'tutopti_collection', array(
+        $term = wp_insert_term( $title, 'lifeguard_contents', array(
                 'description'=> $description
         ));
 

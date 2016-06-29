@@ -1,6 +1,6 @@
 ;(function ($) {
  	// Manual
-	tutopti_Create_Auto_Status = {
+	lifeguard_Create_Auto_Status = {
 		init: function (e) {
 
 		},

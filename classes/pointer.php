@@ -2,15 +2,15 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; 
 
-if ( ! class_exists( 'tutopti_Pointer' ) ) {
+if ( ! class_exists( 'lifeguard_Pointer' ) ) {
 
-class tutopti_Pointer {
+class lifeguard_Pointer {
     
     private static $instance;  
 
     public static function getInstance() {
         if ( !self::$instance ) {
-            self::$instance = new tutopti_Pointer();
+            self::$instance = new lifeguard_Pointer();
         }
 
         return self::$instance;
@@ -22,7 +22,7 @@ class tutopti_Pointer {
         $sql = "SELECT PointerID.meta_value AS 'pointer_id', Target.meta_value AS 'target', Edge.meta_value AS 'edge',";
         $sql .= " Align.meta_value AS 'align', Screen.meta_value AS 'screen_id',";
         $sql .= " OrderX.meta_value AS 'order', `ID` AS 'post_id', `post_content`, `post_title`";
-        if ( tutopti_is_active() ) 
+        if ( lifeguard_is_active() ) 
             $sql .= " ,`term_taxonomy_id` AS 'collection'";
         $sql .= " FROM {$wpdb->posts}";
         $sql .= " JOIN {$wpdb->postmeta} PointerID ON {$wpdb->posts}.ID = PointerID.post_id"; 
@@ -32,7 +32,7 @@ class tutopti_Pointer {
         $sql .= " JOIN {$wpdb->postmeta} Screen ON {$wpdb->posts}.ID = Screen.post_id"; 
         $sql .= " JOIN {$wpdb->postmeta} Page ON {$wpdb->posts}.ID = Page.post_id"; 
         $sql .= " JOIN {$wpdb->postmeta} OrderX ON {$wpdb->posts}.ID = OrderX.post_id"; 
-        if ( tutopti_is_active() )
+        if ( lifeguard_is_active() )
             $sql .= " JOIN {$wpdb->term_relationships} ON {$wpdb->posts}.ID = {$wpdb->term_relationships}.object_id";
         $sql .= " WHERE {$wpdb->posts}.post_type = '%s'";
         $sql .= " AND PointerID.meta_key = '%s'";
@@ -50,16 +50,16 @@ class tutopti_Pointer {
         $pointers = $wpdb->get_results( 
             $wpdb->prepare( 
                 $sql,  
-                'tutopti_pointer',
-                '_tutopti_id', 
-                '_tutopti_target', 
-                '_tutopti_edge', 
-                '_tutopti_align', 
-                '_tutopti_screen', 
+                'lifeguard_pointer',
+                '_lifeguard_id', 
+                '_lifeguard_target', 
+                '_lifeguard_edge', 
+                '_lifeguard_align', 
+                '_lifeguard_screen', 
                 $screen_id,
-                '_tutopti_page',
+                '_lifeguard_page',
                 $page_name, 
-                '_tutopti_order', 
+                '_lifeguard_order', 
                 'publish' 
             ) 
         );
@@ -72,9 +72,9 @@ class tutopti_Pointer {
             'post_title'    => $pointer['title'],
             'post_content'  => $pointer['content'],
             'post_status'   => 'publish', 
-            'post_type'     => 'tutopti_pointer',
+            'post_type'     => 'lifeguard_pointer',
             'post_author'   => get_current_user_id(),
-            'tax_input'     => array( 'tutopti_collection' => array( intval( $pointer['collection'] ) ) )
+            'tax_input'     => array( 'lifeguard_contents' => array( intval( $pointer['collection'] ) ) )
         );
 
         $post_id = wp_insert_post( $args );
@@ -83,13 +83,13 @@ class tutopti_Pointer {
             return false;
 
         $metadata = array( 
-            '_tutopti_id' => uniqid(), 
-            '_tutopti_screen' => $pointer['screen'], 
-            '_tutopti_page' => $pointer['page'], 
-            '_tutopti_target'=> $pointer['target'], 
-            '_tutopti_edge' => $pointer['edge'], 
-            '_tutopti_align' => $pointer['align'], 
-            '_tutopti_order' => $pointer['order'], 
+            '_lifeguard_id' => uniqid(), 
+            '_lifeguard_screen' => $pointer['screen'], 
+            '_lifeguard_page' => $pointer['page'], 
+            '_lifeguard_target'=> $pointer['target'], 
+            '_lifeguard_edge' => $pointer['edge'], 
+            '_lifeguard_align' => $pointer['align'], 
+            '_lifeguard_order' => $pointer['order'], 
         );
 
         $meta_ids = array();
@@ -108,7 +108,7 @@ class tutopti_Pointer {
             'ID'            => $pointer['post_id'],
             'post_title'    => $pointer['title'],
             'post_content'  => $pointer['content'],
-            'tax_input'     => array( 'tutopti_collection' => array( intval( $pointer['collection'] ) ) )
+            'tax_input'     => array( 'lifeguard_contents' => array( intval( $pointer['collection'] ) ) )
         );
 
         $post_id = wp_update_post( $args );
@@ -117,9 +117,9 @@ class tutopti_Pointer {
             return false;
 
         $metadata = array( 
-            '_tutopti_edge' => $pointer['edge'], 
-            '_tutopti_align' => $pointer['align'], 
-            '_tutopti_order' => $pointer['order'], 
+            '_lifeguard_edge' => $pointer['edge'], 
+            '_lifeguard_align' => $pointer['align'], 
+            '_lifeguard_order' => $pointer['order'], 
         );
 
         $meta_ids = array();
@@ -144,4 +144,4 @@ class tutopti_Pointer {
 
 } 
 
-} 
+}

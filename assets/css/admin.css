@@ -23,7 +23,7 @@
 }
 .up {float:right;font-size:15px;line-height:32px;}
 .up i {color:white;}
-.tutopti_help {
+.lifeguard_help {
     float: right;
     font-size: 20px;
     font-weight: 900;
@@ -506,7 +506,7 @@ p {
 }
 
 /* MENU DE ADMIN - LOGO */
-#wp-admin-bar-tutopti-parent > a:before {
+#wp-admin-bar-lifeguard-parent > a:before {
 	display: block;
 font-size:10px;
 margin-top:2px;
@@ -515,8 +515,8 @@ margin-top:2px;
 
 
 /* AYUDA */
-#tab-panel-tutopti-help-tab .tutopti-start-tour,
-#tab-panel-tutopti-help-tab .tutopti-restart-tour {
+#tab-panel-lifeguard-help-tab .lifeguard-start-tour,
+#tab-panel-lifeguard-help-tab .lifeguard-restart-tour {
 	height: 30px;
 	line-height: 28px;
 	margin: 15px 0;
@@ -524,9 +524,9 @@ margin-top:2px;
 	padding-right: 28px;
 }
 
-.tutopti-overlay h3 {    background: #0184A1 !important;}
+.lifeguard-overlay h3 {    background: #0184A1 !important;}
 
-.tutopti-overlay h3 span::after {
+.lifeguard-overlay h3 span::after {
    display: none !important;
 
 }

@@ -1,0 +1,191 @@
+<?php
+
+$filters = array('pre_term_description', 'pre_link_description', 'pre_link_notes', 'pre_user_description');
+foreach ( $filters as $filter ) {
+    remove_filter($filter, 'wp_filter_kses');
+}
+
+wp_insert_term(
+    'Tutorial - Productos',   // the term 
+    'lifeguard_contents', // the taxonomy
+    array(
+        'description' => '<i class="fa fa-shopping-bag"> PRODUCTOS',
+        'slug'        => 'tutorial-productos',
+    ));
+         
+         wp_insert_term(
+    'Tutorial - Entradas',   // the term 
+    'lifeguard_contents', // the taxonomy
+    array(
+        'description' => '<i class="fa fa-hashtag"> ENTRADAS',
+        'slug'        => 'tutorial-entradas',
+    ));
+          wp_insert_term(
+    'Tutorial - Paginas',   // the term 
+    'lifeguard_contents', // the taxonomy
+    array(
+        'description' => '<i class="fa fa-sticky-note"> PAGINAS',
+        'slug'        => 'tutorial-paginas',
+    ));
+          wp_insert_term(
+    'Tutorial - Gestor',   // the term 
+    'lifeguard_contents', // the taxonomy
+    array(
+        'description' => '<i class="fa fa-shopping-cart> PEDIDOS',
+        'slug'        => 'tutorial-gestor',
+    ));
+         
+ 
+$gestor = get_term_by('slug', 'tutorial-gestor', 'lifeguard_contents'); 
+$gestores = $gestor->term_id;
+
+$producto = get_term_by('slug', 'tutorial-productos', 'lifeguard_contents'); 
+$productos = $producto->term_id;
+
+$entrada = get_term_by('slug', 'tutorial-entradas', 'lifeguard_contents'); 
+$entradas = $entrada->term_id;
+
+$pagina = get_term_by('slug', 'tutorial-paginas', 'lifeguard_contents'); 
+$paginas = $pagina->term_id;
+         
+         
+    // PAGINAS - TUTORIALES
+     
+     
+      $my_post = array(
+  'post_title'    => '¿Como puedo gestionar las categorías?',
+  'post_content'  => file_get_contents('includes/txt/como-puedo-gestionar-las-categorias.ldb', FILE_USE_INCLUDE_PATH),
+  'post_status'   => 'publish',
+  'post_author'   => 1,
+  'post_type' => 'lifeguard_pointer',
+  'tax_input' => array( 'lifeguard_contents' => $paginas ),
+);
+wp_insert_post( $my_post );
+    
+      $my_post = array(
+  'post_title'    => '¿Como agregar una página?',
+  'post_content'  => file_get_contents('includes/txt/como-agregar-una-pagina.ldb', FILE_USE_INCLUDE_PATH),
+  'post_status'   => 'publish',
+  'post_author'   => 1,
+  'post_type' => 'lifeguard_pointer',
+  'tax_input' => array( 'lifeguard_contents' => $paginas ),
+); 
+wp_insert_post( $my_post );
+
+      $my_post = array(
+  'post_title'    => '¿Como agregar una página?',
+  'post_content'  => file_get_contents('includes/txt/como-agregar-una-pagina.ldb', FILE_USE_INCLUDE_PATH),
+  'post_status'   => 'publish',
+  'post_author'   => 1,
+  'post_type' => 'lifeguard_pointer',
+  'tax_input' => array( 'lifeguard_contents' => $paginas ),
+); 
+wp_insert_post( $my_post );
+
+      $my_post = array(
+  'post_title'    => '¿Como edito una pagina?',
+  'post_content'  => file_get_contents('includes/txt/como-edito-una-pagina.ldb', FILE_USE_INCLUDE_PATH),
+  'post_status'   => 'publish',
+  'post_author'   => 1,
+  'post_type' => 'lifeguard_pointer',
+  'tax_input' => array( 'lifeguard_contents' => $paginas ),
+); 
+wp_insert_post( $my_post );
+
+
+$my_post = array(
+  'post_title'    => '¿Como utilizo el editor visual?',
+  'post_content'  => file_get_contents('includes/txt/como-utilizo-el-editor-visual.ldb', FILE_USE_INCLUDE_PATH),
+  'post_status'   => 'publish',
+  'post_author'   => 1,
+  'post_type' => 'lifeguard_pointer',
+  'tax_input' => array( 'lifeguard_contents' => $paginas ),
+); 
+wp_insert_post( $my_post );
+
+$my_post = array(
+  'post_title'    => '¿Que puedo hacer?',
+  'post_content'  => file_get_contents('includes/txt/que-puedo-hacer.ldb', FILE_USE_INCLUDE_PATH),
+  'post_status'   => 'publish',
+  'post_author'   => 1,
+  'post_type' => 'lifeguard_pointer',
+  'tax_input' => array( 'lifeguard_contents' => $paginas ),
+); 
+wp_insert_post( $my_post );
+                 
+   
+
+        
+        // ENTRADAS - TUTORIALES
+        
+        
+        
+        
+        $my_post = array(
+  'post_title'    => '¿Como creo una entrada?',
+  'post_content'  => file_get_contents('includes/txt/como-creo-una-entrada.ldb', FILE_USE_INCLUDE_PATH),
+  'post_status'   => 'publish',
+  'post_author'   => 1,
+  'post_type' => 'lifeguard_pointer',
+  'tax_input' => array( 'lifeguard_contents' => $entradas ),
+); 
+wp_insert_post( $my_post );
+
+$my_post = array(
+  'post_title'    => '¿Como puedo gestionar las categorías?',
+  'post_content'  => file_get_contents('includes/txt/como-puedo-gestionar-las-categorias.ldb', FILE_USE_INCLUDE_PATH),
+  'post_status'   => 'publish',
+  'post_author'   => 1,
+  'post_type' => 'lifeguard_pointer',
+  'tax_input' => array( 'lifeguard_contents' => $entradas ),
+); 
+wp_insert_post( $my_post );
+
+$my_post = array(
+  'post_title'    => '¿Como edito una entrada?',
+  'post_content'  => file_get_contents('includes/txt/como-edito-una-entrada.ldb', FILE_USE_INCLUDE_PATH),
+  'post_status'   => 'publish',
+  'post_author'   => 1,
+  'post_type' => 'lifeguard_pointer',
+  'tax_input' => array( 'lifeguard_contents' => $entradas ),
+); 
+wp_insert_post( $my_post );
+      
+        
+        // PRODUCTOS - TUTORIALES
+        
+
+$my_post = array(
+  'post_title'    => '¿Como añadir un producto?',
+  'post_content'  => file_get_contents('includes/txt/como-añadir-un-producto.ldb', FILE_USE_INCLUDE_PATH),
+  'post_status'   => 'publish',
+  'post_author'   => 1,
+  'post_type' => 'lifeguard_pointer',
+  'tax_input' => array( 'lifeguard_contents' => $productos ),
+); 
+wp_insert_post( $my_post );
+
+$my_post = array(
+  'post_title'    => '¿Como edito un producto?',
+  'post_content'  => file_get_contents('includes/txt/como-edito-un-producto.ldb', FILE_USE_INCLUDE_PATH),
+  'post_status'   => 'publish',
+  'post_author'   => 1,
+  'post_type' => 'lifeguard_pointer',
+  'tax_input' => array( 'lifeguard_contents' => $productos ),
+); 
+wp_insert_post( $my_post );   
+               
+        
+        
+        // PEDIDOS - TUTORIALES
+        
+        
+$my_post = array(
+  'post_title'    => '¿Como manejo mis pedidos?',
+  'post_content'  => file_get_contents('includes/txt/como-manejo-mis-pedidos.ldb', FILE_USE_INCLUDE_PATH),
+  'post_status'   => 'publish',
+  'post_author'   => 1,
+  'post_type' => 'lifeguard_pointer',
+  'tax_input' => array( 'lifeguard_contents' => $gestores ),
+); 
+wp_insert_post( $my_post );  ?>
