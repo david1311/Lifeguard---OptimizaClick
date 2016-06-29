@@ -6,7 +6,7 @@ wp_insert_term(
     'Tutorial - Productos',   // the term 
     'lifeguard_contents', // the taxonomy
     array(
-        'description' => 'PRODUCTOS',
+        'description' => '<i class="fa fa-shopping-bag"></i> PRODUCTOS',
         'slug'        => 'tutorial-productos',
     ));
          
@@ -14,21 +14,21 @@ wp_insert_term(
     'Tutorial - Entradas',   // the term 
     'lifeguard_contents', // the taxonomy
     array(
-        'description' => 'ENTRADAS',
+        'description' => '<i class="fa fa-hashtag"></i> ENTRADAS',
         'slug'        => 'tutorial-entradas',
     ));
           wp_insert_term(
     'Tutorial - Paginas',   // the term 
     'lifeguard_contents', // the taxonomy
     array(
-        'description' => 'PAGINAS',
+        'description' => '<i class="fa fa-sticky-note"></i> PAGINAS',
         'slug'        => 'tutorial-paginas',
     ));
           wp_insert_term(
     'Tutorial - Gestor',   // the term 
     'lifeguard_contents', // the taxonomy
     array(
-        'description' => 'PEDIDOS',
+        'description' => '<i class="fa fa-shopping-cart"></i> PEDIDOS',
         'slug'        => 'tutorial-gestor',
     ));
          
@@ -60,16 +60,6 @@ $gestores = $gestor->term_id;
 );
 wp_insert_post( $my_post );
     
-      $my_post = array(
-  'post_title'    => '¿Como agregar una página?',
-  'post_content'  => file_get_contents('includes/txt/como-agregar-una-pagina.ldb', FILE_USE_INCLUDE_PATH),
-  'post_status'   => 'publish',
-  'post_author'   => 1,
-  'post_type' => 'lifeguard_pointer',
-  'tax_input' => array( 'lifeguard_contents' => $paginas ),
-); 
-wp_insert_post( $my_post );
-
       $my_post = array(
   'post_title'    => '¿Como agregar una página?',
   'post_content'  => file_get_contents('includes/txt/como-agregar-una-pagina.ldb', FILE_USE_INCLUDE_PATH),
