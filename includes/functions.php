@@ -6,9 +6,6 @@ require_once('user_help.php');
 }
 add_filter( 'update_footer', 'change_footer_version', 9999);
 
-
-
-
 function wpb_custom_logo() {
 ?><style type="text/css">
 #wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {

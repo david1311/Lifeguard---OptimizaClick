@@ -31,6 +31,13 @@ wp_insert_term(
         'description' => '<i class="fa fa-shopping-cart"></i> PEDIDOS',
         'slug'        => 'tutorial-gestor',
     ));
+           wp_insert_term(
+    'Tutorial - Mail',   // the term 
+    'lifeguard_contents', // the taxonomy
+    array(
+        'description' => '<i class="fa fa-shopping-cart"></i> CUENTAS DE CORREO',
+        'slug'        => 'tutorial-correo',
+    ));
          
  
 
@@ -45,7 +52,10 @@ $pagina = get_term_by('slug', 'tutorial-paginas', 'lifeguard_contents');
 $paginas = $pagina->term_id;
 
 $gestor = get_term_by('slug', 'tutorial-gestor', 'lifeguard_contents'); 
-$gestores = $gestor->term_id;    
+$gestores = $gestor->term_id;
+
+$correo = get_term_by('slug', 'tutorial-correo', 'lifeguard_contents'); 
+$correos = $correo->term_id;
          
     // PAGINAS - TUTORIALES
      
@@ -168,6 +178,16 @@ wp_insert_post( $my_post );
         // PEDIDOS - TUTORIALES
         
         
+        
+$my_post = array(
+  'post_title'    => '¿Como veo mis pedidos?',
+  'post_content'  => file_get_contents('includes/txt/como-veo-mis-pedidos.ldb', FILE_USE_INCLUDE_PATH),
+  'post_status'   => 'publish',
+  'post_author'   => 1,
+  'post_type' => 'lifeguard_pointer',
+  'tax_input' => array( 'lifeguard_contents' => $gestores ),
+);
+wp_insert_post( $my_post );
 $my_post = array(
   'post_title'    => '¿Como manejo mis pedidos?',
   'post_content'  => file_get_contents('includes/txt/como-manejo-mis-pedidos.ldb', FILE_USE_INCLUDE_PATH),
@@ -176,4 +196,23 @@ $my_post = array(
   'post_type' => 'lifeguard_pointer',
   'tax_input' => array( 'lifeguard_contents' => $gestores ),
 ); 
-wp_insert_post( $my_post );  ?>
+wp_insert_post( $my_post );
+                 
+        
+        
+        // CONFIGURAR CUENTA DE CORREO
+        
+        
+
+$my_post = array(
+  'post_title'    => '¿Como configuro mi cuenta de correo?',
+  'post_content'  => file_get_contents('includes/txt/como-configurar-correo.ldb', FILE_USE_INCLUDE_PATH),
+  'post_status'   => 'publish',
+  'post_author'   => 1,
+  'post_type' => 'lifeguard_pointer',
+  'tax_input' => array( 'lifeguard_contents' => $correos ),
+);
+
+wp_insert_post( $my_post );
+
+?>

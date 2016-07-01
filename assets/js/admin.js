@@ -1,5 +1,4 @@
 ;(function ($) {
-
 	lifeguard_Admin = {
 		init: function(e) {
 			// Validate license form

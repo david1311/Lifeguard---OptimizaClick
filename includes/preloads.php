@@ -200,8 +200,7 @@ $lifeguard_preloads = array(
         'title' => 'Tus productos',
         'content' => 'Desde este apartado vas a controlar los pedidos que se realicen en la web.',
         'edge' => 'top', 
-        'align' => 'middle', 
-        
+        'align' => 'middle',
 	));
          
 ?>
