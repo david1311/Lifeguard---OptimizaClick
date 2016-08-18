@@ -1,16 +1,16 @@
 <h4>Configuración en Outlook</h4>
 <p>El primer paso sera abrir nuestro outlook, dependiendo de la versión <strong>tendremos</strong> una interfaz diferente, de todos modos nos aparecera una opción de configurar cuenta, en caso de que sea nuestra primera vez nos lo pedira justo al abrir.</p>
 <p>Una vez que estemos <strong>agregando</strong> nuestra cuenta deberemos utilizar los datos que aclaro a continuación. Es importante modificar los datos ya que esto es un ejemplo.</p>
-<p>Datos de Correo</p>
+<h4>Datos de Correo</h4>
 <ul>
-<li>Usuario: info@dominio.com</li>
-<li>Correo: info@dominio.com</li>
-<li>Contraseña: ****** (la que tengais asignada)</li>
+<li><strong>Usuario:</strong> info@dominio.com</li>
+<li><strong>Correo:</strong> info@dominio.com</li>
+<li><strong>Contraseña:</strong> ****** (la que tengais asignada)</li>
 </ul>
 <p>Por otro lado os pedira una <strong>configracion</strong> del servidor, lo vamos a configurar a traves de IMAP para que se <strong>guarden</strong> los correos en el servidor</p>
 <ul>
-<li>Servidor IMAP: mail.dominio.com</li>
-<li>Servidor SMTP: smtp.dominio.com</li>
+<li><strong>Servidor IMAP:</strong> mail.dominio.com</li>
+<li><strong>Servidor SMTP:</strong> smtp.dominio.com</li>
 <li>En "Mas Configuraciones" nos iremos a "Servidor de Salida" y seleccionaremos "Mi servidor de salida(SMTP) requiere Autentificación y aceptamos.</li>
 <li>Marcar la opcion de "Requerir inicio de sesión utilizando Autentificacion de Contraseña Segura(SPA)</li>
 <li>

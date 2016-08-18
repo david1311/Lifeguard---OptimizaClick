@@ -32,9 +32,11 @@ wp_insert_term(
     'Tutorial - Mail',  
     'lifeguard_contents', 
     array(
-        'description' => '<i class="fa fa-shopping-cart"></i> CUENTAS DE CORREO',
+        'description' => '<i class="fa fa-envelope-o"></i> CUENTAS DE CORREO',
         'slug'        => 'tutorial-correo',
     ));
+           
+       
          
  
 

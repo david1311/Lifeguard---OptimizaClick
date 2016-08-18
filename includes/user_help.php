@@ -20,7 +20,8 @@ $values = get_posts(array(
       'terms' => array('tutorial-productos',
                        'tutorial-paginas',
                        'tutorial-entradas',
-					   'tutorial-gestor',),//
+					   'tutorial-gestor',
+					   'tutorial-correo',),//
       'category'         => '',
       'include_children' => true
     )
@@ -67,7 +68,7 @@ foreach($values as $value) {
     </div>
 </div> 
 	<div class="ayuda" onclick="openNav()">
-		<i class="fa fa-life-ring"></i>
+		<a class="tooltips" href="#"><i class="fa fa-life-ring"></i><span>¿Necesitas ayuda?</span></a>
 	</div>
 </div>
 </div>
