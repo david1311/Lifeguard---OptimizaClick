@@ -1,7 +1,7 @@
 <div id="mySidenav" class="sidenav"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 <?php require_once("header.php");?>
 
-
+<div class="style">
 <?php
 
 # Sacamos los post que se almacenan en el tutorial
@@ -69,4 +69,5 @@ foreach($values as $value) {
 	<div class="ayuda" onclick="openNav()">
 		<i class="fa fa-life-ring"></i>
 	</div>
+</div>
 </div>

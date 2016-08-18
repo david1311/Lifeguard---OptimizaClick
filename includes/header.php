@@ -1,5 +1,6 @@
 <?php global $post;?>
 <?php $home = get_home_url();?>
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -10,7 +11,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="http://www.optimizaclick.com"><img src="<?php echo $home;?>/wp-content/plugins/tutorial_optimiza/assets/images/logo_optimiza_4.png"></a>
+      <a class="navbar-brand" href="http://www.optimizaclick.com"><img src="<?php echo $home;?>/wp-content/plugins/Lifeguard---OptimizaClick/assets/images/logo.png"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -25,7 +26,7 @@
            <li><a href="<?php echo $home;?>/wp-admin/edit.php?post_type=shop_order">Pedidos</a></li>
           <?php } ?>     
       </ul>
-      <ul class="nav navbar-nav" style="padding: 10px 30px 0px 0px;float: right;">
+      <ul class="nav navbar-nav" style="padding: 8px 30px 0px 0px;float: right;">
           <input type="text" id="searchButton" placeholder="Introduce aquí tu busqueda"></input>
           <button type="button" id="goto"><i class="fa fa-search" aria-hidden="true"></i></button>
       </ul>

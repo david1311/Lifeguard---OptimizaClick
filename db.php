@@ -1,39 +1,36 @@
 <?php
-
-
-
 wp_insert_term(
-    'Tutorial - Productos',   // the term 
-    'lifeguard_contents', // the taxonomy
+    'Tutorial - Productos',   
+    'lifeguard_contents', 
     array(
         'description' => '<i class="fa fa-shopping-bag"></i> PRODUCTOS',
         'slug'        => 'tutorial-productos',
     ));
          
          wp_insert_term(
-    'Tutorial - Entradas',   // the term 
-    'lifeguard_contents', // the taxonomy
+    'Tutorial - Entradas',   
+    'lifeguard_contents', 
     array(
         'description' => '<i class="fa fa-hashtag"></i> ENTRADAS',
         'slug'        => 'tutorial-entradas',
     ));
           wp_insert_term(
-    'Tutorial - Paginas',   // the term 
-    'lifeguard_contents', // the taxonomy
+    'Tutorial - Paginas',  
+    'lifeguard_contents',
     array(
         'description' => '<i class="fa fa-sticky-note"></i> PAGINAS',
         'slug'        => 'tutorial-paginas',
     ));
           wp_insert_term(
-    'Tutorial - Gestor',   // the term 
-    'lifeguard_contents', // the taxonomy
+    'Tutorial - Gestor',  
+    'lifeguard_contents',
     array(
         'description' => '<i class="fa fa-shopping-cart"></i> PEDIDOS',
         'slug'        => 'tutorial-gestor',
     ));
            wp_insert_term(
-    'Tutorial - Mail',   // the term 
-    'lifeguard_contents', // the taxonomy
+    'Tutorial - Mail',  
+    'lifeguard_contents', 
     array(
         'description' => '<i class="fa fa-shopping-cart"></i> CUENTAS DE CORREO',
         'slug'        => 'tutorial-correo',

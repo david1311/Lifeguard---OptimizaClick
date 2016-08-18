@@ -5,10 +5,11 @@
 #wpfooter a:hover {
     text-decoration: none;
 }
-.acc-content-inner p {padding-top:5px;}
+.wp-current-pointer p {padding-top:10px;}
+.acc-content-inner p {padding-top:10px;}
 #adminmenu .wp-menu-image img {padding:4px 0 0 !important;}
 #goto:focus {outline: hidden !important;}
-#goto {color:#0184a1;
+#goto {color:#ffffff;
     background: transparent;
     border: none;}
 .sidenav::-webkit-scrollbar-track {
@@ -85,18 +86,19 @@ li {margin-bottom: 0px;}
     text-decoration: none;
     font-size: 14px;
     z-index: 99;
-    color: #818181;
+    color: #ffffff;
     transition: 0.3s;
 }
 
 
 .sidenav a:hover, .offcanvas a:focus{
-    color: #2980b9;
+    color: #ffffff;
 }
 
 
 .closebtn {
-    position: absolute;
+    position: relative;
+	float:right;
     top: 0;
     right: 25px;
     font-size: 36px !important;
@@ -227,26 +229,7 @@ display: inline-block;
 #collapse-menu {
     background: #0184A1;
     color: #ffffff;}
-#adminmenu li a.wp-has-current-submenu .update-plugins {background:black;}
-#wpadminbar:not(.mobile) .ab-top-menu>li:hover>.ab-item {background-color: #0184A1;color:white;}
-#adminmenu li a:focus div.wp-menu-image:before, #adminmenu li.opensub div.wp-menu-image:before, #adminmenu li:hover div.wp-menu-image:before {color:white;}
-.auto-fold #adminmenu li>a.menu-top:focus {background-color: #0184A1;color:white;}
-#adminmenu li.opensub>a.menu-top {background-color: #0184A1;color:white}
-#wpadminbar {    background: #0184A1;}
-#adminmenu li.menu-top:hover {    background-color: #0184A1;
-    color: #ffffff;}
-#adminmenu .wp-submenu a:hover, #adminmenu a:hover {color:white;}
-#adminmenuwrap {    background-color: #0ab0d8;}
-#adminmenu div.wp-menu-image:before {color:white;}
-#adminmenu {    background-color: #0ab0d8;}
-#wpadminbar .quicklinks .ab-sub-wrapper .menupop.hover>a, #wpadminbar .quicklinks .menupop ul li a:focus, #wpadminbar .quicklinks .menupop ul li a:focus strong, #wpadminbar .quicklinks .menupop ul li a:hover, #wpadminbar .quicklinks .menupop ul li a:hover strong, #wpadminbar .quicklinks .menupop.hover ul li a:focus, #wpadminbar .quicklinks .menupop.hover ul li a:hover, #wpadminbar li #adminbarsearch.adminbar-focused:before, #wpadminbar li .ab-item:focus:before, #wpadminbar li a:focus .ab-icon:before, #wpadminbar li.hover .ab-icon:before, #wpadminbar li.hover .ab-item:before, #wpadminbar li:hover #adminbarsearch:before, #wpadminbar li:hover .ab-icon:before, #wpadminbar li:hover .ab-item:before, #wpadminbar.nojs .quicklinks .menupop:hover ul li a:focus, #wpadminbar.nojs .quicklinks .menupop:hover ul li a:hover {
-    color:white;
-}
- #wpadminbar:not(.mobile)>#wp-toolbar li:hover span.ab-label, #wpadminbar>#wp-toolbar li.hover span.ab-label {color:white;}
-#adminmenu li.wp-has-current-submenu a.wp-has-current-submenu {background-color: #0ab0d8;}
-#adminmenu .wp-has-current-submenu .wp-submenu {    background-color: #0184A1;}
-#adminmenu li.current a.menu-top {background:#1f1f1f;}
-#adminmenuback {background-color:#0ab0d8;}
+
 /* POPUPS HELP */
 .modal {
   opacity: 0;
@@ -468,12 +451,33 @@ p {
 .updated table {
     width: 100%;
 }
-
+input#searchButton {
+    background-color: #008aa9;
+        padding: 5px;
+		    border: 2px solid #fff;
+    color: white;
+}
+input#searchButton::-webkit-input-placeholder {
+    /* Google Chrome y Safari */
+    color: white;
+}
+input#searchButton:-moz-placeholder {
+    /* Firefox anterior a 19 */
+    color: white;
+}
+input#searchButton::-moz-placeholder {
+    /* Firefox 19 y superior */
+    color: white;
+}
+input#searchButton:-ms-input-placeholder {
+    /* Internet Explorer 10 y superior */
+    color: white;
+}
 .ayuda i{    float: right;
     margin: 10px;
     padding: 15px;
     cursor: pointer;
-       background: #0ab0d8;
+       background: #008bad;
            border-radius: 100px;
     color: white;
           -webkit-transition: all 1s ease-in-out;
@@ -484,7 +488,7 @@ p {
     
 
 .ayuda i:hover {
-    background: #de767c;
+    background: #de0e5b;
 }
 .social-media-sharing-utility ul {
     width: 60%;
