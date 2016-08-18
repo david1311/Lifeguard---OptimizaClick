@@ -75,12 +75,14 @@ em {        background: #00b583;
   background-color: yellow;
 }
 li {margin-bottom: 0px;}
- .acc-content-inner a{   background: #e8a2a6;
+ .acc-content-inner a{
+    background: #00b583;
     color: white !important;
-    padding: 4px;
+    padding: 3px;
+    margin-top: 4px;
     font-family: 'Montserrat';
     font-weight: 900;
-    border-radius: 4px;}
+	}
 /* The navigation menu links */
 .sidenav a {
 
@@ -117,48 +119,7 @@ li {margin-bottom: 0px;}
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }
-.hamburger {
-display: inline-block;
-    bottom: 0px;
-    position: relative;
-    margin-bottom: 10px;
-    float:right;
-}
-.hamburger > div {
-    margin-top: 0.4vh;
-    background: #0184A1;
-    height: 1.0vh;
-    width: 5vh;
-    border-radius: 2.5vh;
-    position: relative;
-}
-.hamburger > div:nth-child(2)::after {
-    border: 1.0vh solid #0184A1;
-    border-color: #0184A1 transparent transparent transparent;
-    position: absolute;
-    content: "";
-    bottom: -1.5vh;
-    right: 1vh;
-    transition: .3s all ease-in-out;
-}
-.hamburger > div:first-child {
-  over-flow: hidden;
-  transition: .3s all ease-in-out;
-  position: relative;
-  top: 0;
-}
-.hamburger:hover, .hamburger:active, .hamburger.expanded {
-  cursor: pointer;
-}
-.hamburger:hover div:nth-child(2)::after, .hamburger:active div:nth-child(2)::after, .hamburger.expanded div:nth-child(2)::after {
-  bottom: -1.5vh;
-}
-.hamburger:hover div:first-child, .hamburger:active div:first-child, .hamburger.expanded div:first-child {
-  height: 2vh;
- top: -1vh;
-  margin-bottom: -1vh;
-  border-radius: 20vh 20vh 2.5vh 2.5vh; 
-}
+
 
 .welcome-panel {padding: 23px 10px 23px; }
 
@@ -474,8 +435,14 @@ input#searchButton:-ms-input-placeholder {
     /* Internet Explorer 10 y superior */
     color: white;
 }
+
+#wpfooter {
+    padding: 50px;}
 .ayuda i{    float: right;
     margin: 10px;
+	position: fixed;
+	bottom: 10px;
+	right:10px;
     padding: 15px;
     cursor: pointer;
        background: #008bad;
@@ -553,11 +520,17 @@ ul#wp-admin-bar-wp-logo-default {
 #wpadminbar .quicklinks .menupop ul.ab-sub-secondary {display: none;}
 
 a.tooltips {
-  position: relative;
-  display: inline;
+      position: fixed;
+    display: inline;
+    bottom: 65px;
+    right: 53px;
 }
+
+a:focus {    -webkit-box-shadow: 0 0 0 0px #5b9dd9,0 0 0px 0px rgba(30,140,190,.8);
+    box-shadow: 0 0 0 0px #5b9dd9,0 0 0px 0px rgba(30,140,190,.8);}
 a.tooltips span {
 float: right;
+       float: right;
     width: 140px;
     color: #FFFFFF;
     background: #00b583;
@@ -567,8 +540,8 @@ float: right;
     text-align: center;
     font-size: 15px;
     visibility: hidden;
-    margin-right: -25px;
-    margin-top: -25px;
+    margin-right: 5px;
+    margin-top: -55px;
     border-radius: 6px;
 }
 a.tooltips span:after {
@@ -576,7 +549,7 @@ a.tooltips span:after {
   position: absolute;
 float:right;
     margin-top: -25px;
-    top: 32px;
+    top: 2px;
 	margin-left: -20px;
     height: 0;
 	    margin-right: -25px;
@@ -584,6 +557,7 @@ float:right;
   border-right: 8px solid transparent;
   border-left: 8px solid transparent;
 }
+
 a:hover.tooltips span {
   visibility: visible;
 }

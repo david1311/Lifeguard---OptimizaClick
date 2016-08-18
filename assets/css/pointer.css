@@ -27,8 +27,12 @@
 	content:none;
 }
  .wp-core-ui .button-primary:hover {
-    background: #de767c;
-    border-color: #de767c;
+    background: #00b583;
+	-webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+    border-color: #00b583;
     text-shadow: none;
     color: #fff;
 }
@@ -37,6 +41,7 @@
     border-color: #008bad #008bad #008bad;
     -webkit-box-shadow: none;
     box-shadow: none;
+	border-radius: 0px !important;
     color: #fff;
     text-decoration: none;
     text-shadow: none;

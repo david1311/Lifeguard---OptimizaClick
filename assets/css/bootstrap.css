@@ -4371,14 +4371,22 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar-nav {
     float: left;
     margin: 0;
+    
   }
+
+  
   .navbar-nav > li {
     float: left;
   }
+  .navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  font-size:13px !important;
+}
   .navbar-nav > li > a {
     padding-top: 15px;
     padding-bottom: 15px;
-        font-size: 15px;
+        font-size: 13px;
   }
 }
 .navbar-form {
@@ -4449,7 +4457,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar-form .form-group:last-child {
     margin-bottom: 0;
   }
+  
 }
+
 @media (min-width: 768px) {
   .navbar-form {
     width: auto;

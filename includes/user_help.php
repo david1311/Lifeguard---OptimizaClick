@@ -38,7 +38,6 @@ $values = get_posts(array(
             <h5>"Si tienes mas dudas <strong>despues</strong> de seguir el tutorial, aquí tienes unos <strong>pequeños aputes</strong> para que puedas guiarte."</h5>
             </div><!-- /input-group -->
         </div><!-- /.col-lg-6 -->
-        
         <?php
 foreach($values as $value) {
    $titles = get_the_terms($value->ID, 'lifeguard_contents',array("order"=>"ASC"));
@@ -72,3 +71,4 @@ foreach($values as $value) {
 	</div>
 </div>
 </div>
+

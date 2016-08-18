@@ -24,7 +24,8 @@
             if ( class_exists( 'WooCommerce' ) ) {?>
            <li><a href="<?php echo $home;?>/wp-admin/post-new.php?post_type=product">Añadir producto</a></li>
            <li><a href="<?php echo $home;?>/wp-admin/edit.php?post_type=shop_order">Pedidos</a></li>
-          <?php } ?>     
+          <?php } ?>
+           <li style="background: #006277;font-weight: 900;"><a href="#"><i class="fa fa-user" aria-hidden="true"></i> Panel de clientes</a></li>
       </ul>
       <ul class="nav navbar-nav" style="padding: 8px 30px 0px 0px;float: right;">
           <input type="text" id="searchButton" placeholder="Introduce aquí tu busqueda"></input>
