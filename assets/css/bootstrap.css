@@ -4378,11 +4378,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar-nav > li {
     float: left;
   }
-  .navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-  font-size:13px !important;
-}
+ 
   .navbar-nav > li > a {
     padding-top: 15px;
     padding-bottom: 15px;
@@ -4454,6 +4450,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar-form .form-group {
     margin-bottom: 5px;
   }
+  .navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  font-size:13px !important;
+}
   .navbar-form .form-group:last-child {
     margin-bottom: 0;
   }

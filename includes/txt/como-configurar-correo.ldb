@@ -1,7 +1,7 @@
 <h4>Configuración en Outlook</h4>
 <p>El primer paso sera abrir nuestro outlook, dependiendo de la versión <strong>tendremos</strong> una interfaz diferente, de todos modos nos aparecera una opción de configurar cuenta, en caso de que sea nuestra primera vez nos lo pedira justo al abrir.</p>
 <p>Una vez que estemos <strong>agregando</strong> nuestra cuenta deberemos utilizar los datos que aclaro a continuación. Es importante modificar los datos ya que esto es un ejemplo.</p>
-<h4>Datos de Correo</h4>
+<h4 style="margin-top: 30px;">Datos de Correo</h4>
 <ul>
 <li><strong>Usuario:</strong> info@dominio.com</li>
 <li><strong>Correo:</strong> info@dominio.com</li>

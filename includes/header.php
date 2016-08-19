@@ -11,7 +11,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="http://www.optimizaclick.com"><img src="<?php echo $home;?>/wp-content/plugins/Lifeguard---OptimizaClick/assets/images/logo.png"></a>
+      <a class="navbar-brand" href="http://www.optimizaclick.com" style="padding-top:5px;"><img src="<?php echo $home;?>/wp-content/plugins/Lifeguard---OptimizaClick/assets/images/logo-optimiza.png"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

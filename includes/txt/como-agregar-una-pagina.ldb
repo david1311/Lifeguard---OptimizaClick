@@ -1,3 +1,3 @@
 Agregar o editar una pagina es muy <strong>sencillo</strong>, en el caso de editar solo tienes que irte en tu menú al apartado de "Paginas", a continuación
 ponerte encima de la "pagina" que te interese y te aparecera un <strong>boton</strong> de editar. En caso de que quieras crear una pagina solo tienes que pinchar aquí
-<a href="./wp-admin/post-new.php?post_type=page"><i class="fa fa-hand-pointer-o"> Crear página</i></a>
+<a href="./post-new.php?post_type=page"><i class="fa fa-hand-pointer-o"> Crear página</i></a>

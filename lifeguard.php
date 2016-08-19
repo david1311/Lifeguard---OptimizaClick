@@ -5,7 +5,7 @@ Plugin URI: http://www.optimizaclick.com
 Description: Ayuda de usuarios, manuales, y otras muchas opciones.
 Author: Departamento de Desarrollo - Optimizaclick 
 Author URI: http://www.optimizaclick.com
-Version: 1.2
+Version: 1.2.1
 Copyright: 2016 - 2xxx
 */
 
@@ -18,7 +18,7 @@ class WP_Custom_Pointers {
 
     private $pointer_obj;
     private $collection_obj;
-    public $version = '1.2';
+    public $version = '1.2.1';
     public $remote_version;
     public $plugin_path;
     public $plugin_uri;
@@ -199,10 +199,14 @@ class WP_Custom_Pointers {
         }
     }
 
+
+
+
     public function includes() {
         require_once dirname( __FILE__ ) . '/includes/html.php';
         require_once dirname( __FILE__ ) . '/includes/functions.php';
          require_once dirname( __FILE__ ) . '/includes/preloads.php';
+         require_once dirname( __FILE__ ) . '/includes/updates.php';
     }
 
     public function admin_menu() {
@@ -212,12 +216,15 @@ class WP_Custom_Pointers {
         unset( $submenu['edit.php?post_type=lifeguard_pointer'][10] );
     }
 
+//custom updates/upgrades
+
 
     public function hide_add_new_link() {
         if ( isset($_GET['post_type']) && $_GET['post_type'] == 'lifeguard_pointer' ) {
             ?> <style type="text/css"> #icon-edit + h2 .add-new-h2 { display:none; } </style> <?php
         }
     }
+
 
     public function admin_bar_node( $wp_admin_bar ) {
 
@@ -429,5 +436,7 @@ function add_drafts_admin_menu_item() {
 }
 
 $GLOBALS['lifeguard'] = new WP_Custom_Pointers();
+
+
 
 }
