@@ -30,7 +30,7 @@ jQuery('#searchButton').keyup(function(){
 
 
 jQuery('#goto').click(function(){
-    jQuery(".acc-content-inner em ").addClass("select");
+    jQuery(".acc-content-inner em").addClass("select");
     jQuery('.sidenav').animate({
       scrollTop: (jQuery('.select').first().offset().top)
     },1500);

@@ -1,10 +1,4 @@
 <?php
-$updater = new Lifeguard_Updater( __FILE__ );
-$updater->set_username( 'david1311' );
-$updater->set_repository( 'Lifeguard---OptimizaClick' );
-$updater->authorize( '7ca6976243dd385d6c910e2ef99127730c93f490' ); 
-$updater->initialize();
-
 
 class Lifeguard_Updater {
 

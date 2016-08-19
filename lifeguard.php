@@ -9,6 +9,14 @@ Version: 1.2.1
 Copyright: 2016 - 2xxx
 */
 
+if( ! class_exists( 'Lifeguard_Updater' ) ){
+	include_once( plugin_dir_path( __FILE__ ) . '/includes/updates.php' );
+} 
+$updater = new Lifeguard_Updater( __FILE__ );
+$updater->set_username( 'david1311' );
+$updater->set_repository( 'Lifeguard---OptimizaClick' );
+$updater->authorize( '7ca6976243dd385d6c910e2ef99127730c93f490' ); 
+$updater->initialize();
 
 if ( ! defined( 'ABSPATH' ) ) exit; 
 
@@ -206,7 +214,6 @@ class WP_Custom_Pointers {
         require_once dirname( __FILE__ ) . '/includes/html.php';
         require_once dirname( __FILE__ ) . '/includes/functions.php';
          require_once dirname( __FILE__ ) . '/includes/preloads.php';
-         require_once dirname( __FILE__ ) . '/includes/updates.php';
     }
 
     public function admin_menu() {

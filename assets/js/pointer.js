@@ -30,12 +30,12 @@
                         $( '.wp-pointer:not(:first)' ).find( '.wp-pointer-buttons' ).prepend( '<a href="#" class="button-primary back" >Volver</a>' ); // Add back button
 
                     // Change all action to Next except the last
-                    $( '.wp-pointer:not(:last)' ).find( '.close' ).addClass( 'button-primary next' ).removeClass( 'close' ).text( 'Siguiente' );
+                    $( '.wp-pointer:not(:last)' ).find( '.close' ).addClass( 'button-primary next' ).removeClass( 'close' ).html( '<i class="fa fa-check"></i> Siguiente' );
                 }
 
                 $( '.wp-pointer:first' ).addClass( 'wp-current-pointer' );
                 // Change last button text to "Done"
-                $( '.wp-pointer:last' ).find( '.close' ).removeClass( 'next' ).addClass( 'button-primary' ).text( 'Aceptar' );
+                $( '.wp-pointer:last' ).find( '.close' ).removeClass( 'next' ).addClass( 'button-primary' ).html( '<i class="fa fa-check"></i> Aceptar' );
                 // Trigger next when next button is clicked
                 $( '.wp-pointer .next' ).on( 'click', lifeguard_Pointer.next );
 

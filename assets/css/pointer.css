@@ -17,7 +17,8 @@
     border-bottom: none;
     line-height: 1.4em;
     font-size: 14px;
-    /* background-image: url(../images/logo.png); */
+        font-family: Montserrat;
+    font-weight: 900;
     color: #fff;
     background: url(../images/fondo.png)#008bad;
     background-repeat: no-repeat;
@@ -28,6 +29,7 @@
 }
  .wp-core-ui .button-primary:hover {
     background: #00b583;
+	   
 	-webkit-transition: all 1s ease-in-out;
   -moz-transition: all 1s ease-in-out;
   -o-transition: all 1s ease-in-out;
@@ -38,6 +40,7 @@
 }
 .wp-core-ui .button-primary {
     background: #008bad;
+	 font-family: Montserrat;
     border-color: #008bad #008bad #008bad;
     -webkit-box-shadow: none;
     box-shadow: none;
