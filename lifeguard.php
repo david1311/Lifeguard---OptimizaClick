@@ -5,18 +5,10 @@ Plugin URI: http://www.optimizaclick.com
 Description: Ayuda de usuarios, manuales, y otras muchas opciones.
 Author: Departamento de Desarrollo - Optimizaclick 
 Author URI: http://www.optimizaclick.com
-Version: 1.2.1
+Version: 1.2.3
 Copyright: 2016 - 2xxx
 */
 
-if( ! class_exists( 'Lifeguard_Updater' ) ){
-	include_once( plugin_dir_path( __FILE__ ) . '/includes/updates.php' );
-} 
-$updater = new Lifeguard_Updater( __FILE__ );
-$updater->set_username( 'david1311' );
-$updater->set_repository( 'Lifeguard---OptimizaClick' );
-$updater->authorize( '7ca6976243dd385d6c910e2ef99127730c93f490' ); 
-$updater->initialize();
 
 if ( ! defined( 'ABSPATH' ) ) exit; 
 
@@ -26,7 +18,7 @@ class WP_Custom_Pointers {
 
     private $pointer_obj;
     private $collection_obj;
-    public $version = '1.2.1';
+    public $version = '1.2.3';
     public $remote_version;
     public $plugin_path;
     public $plugin_uri;
@@ -120,6 +112,8 @@ class WP_Custom_Pointers {
     
     
 
+    
+	
     /**
      * Uninstall
      */
@@ -214,6 +208,7 @@ class WP_Custom_Pointers {
         require_once dirname( __FILE__ ) . '/includes/html.php';
         require_once dirname( __FILE__ ) . '/includes/functions.php';
          require_once dirname( __FILE__ ) . '/includes/preloads.php';
+		  require_once dirname( __FILE__ ) . '/includes/updater.php';
     }
 
     public function admin_menu() {
@@ -378,6 +373,9 @@ function add_drafts_admin_menu_item() {
         }
         include('db.php');
         }
+        
+        
+       
         
     
     
