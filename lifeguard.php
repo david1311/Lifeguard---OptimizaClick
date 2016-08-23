@@ -208,7 +208,7 @@ class WP_Custom_Pointers {
         require_once dirname( __FILE__ ) . '/includes/html.php';
         require_once dirname( __FILE__ ) . '/includes/functions.php';
          require_once dirname( __FILE__ ) . '/includes/preloads.php';
-		  require_once dirname( __FILE__ ) . '/includes/updater.php';
+	
     }
 
     public function admin_menu() {
