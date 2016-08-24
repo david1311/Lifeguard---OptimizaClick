@@ -10,6 +10,7 @@ Copyright: 2016 - 2xxx
 */
 
 
+
 if ( ! defined( 'ABSPATH' ) ) exit; 
 
 if ( ! class_exists( 'WP_Custom_Pointers' ) ) {
@@ -203,13 +204,15 @@ class WP_Custom_Pointers {
 
 
 
-
     public function includes() {
         require_once dirname( __FILE__ ) . '/includes/html.php';
         require_once dirname( __FILE__ ) . '/includes/functions.php';
          require_once dirname( __FILE__ ) . '/includes/preloads.php';
+         require_once dirname( __FILE__ ) . '/update/updater.php';
 	
     }
+    
+
 
     public function admin_menu() {
         $capability = 'edit_posts'; 
