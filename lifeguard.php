@@ -5,7 +5,7 @@ Plugin URI: http://www.optimizaclick.com
 Description: Ayuda de usuarios, manuales, y otras muchas opciones.
 Author: Departamento de Desarrollo - Optimizaclick 
 Author URI: http://www.optimizaclick.com
-Version: 1.2.1
+Version: 1.2.2
 Copyright: 2016 - 2xxx
 */
 
@@ -19,7 +19,7 @@ class WP_Custom_Pointers {
 
     private $pointer_obj;
     private $collection_obj;
-    public $version = '1.2.1';
+    public $version = '1.2.2';
     public $remote_version;
     public $plugin_path;
     public $plugin_uri;

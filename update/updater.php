@@ -6,3 +6,4 @@ require 'plugin-update-checker.php';
 		__FILE__,
 		'master'
 	);
+	$myUpdateChecker->setAccessToken('59d88eb56dce716cf4887943c694e93117acf36e');

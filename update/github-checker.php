@@ -294,6 +294,7 @@ class PucGitHubChecker_3_1 extends PluginUpdateChecker_3_1 {
 	 * @param string $accessToken
 	 */
 	public function setAccessToken($accessToken) {
+		
 		$this->accessToken = $accessToken;
 	}
 
